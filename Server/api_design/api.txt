@@ -40,7 +40,7 @@ ListUsers
 CreateHabit(name:string, frequency:integer)
   => Habit
 
-ListHabits - potentially (offset: integer, limit: integer) for paginaton - not needed so therefore no parameters for MVP
+ListHabits 
   => Habit[]
 
 GetHabit(id:uuid)

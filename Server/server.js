@@ -8,10 +8,10 @@ server.use(express.json());
 
 const port = 3000;
 
-// const userRoutes = require("./controllers/users.js");
+const userRoutes = require("./controllers/users.js");
 // const habitRoutes = require("./controllers/habits.js");
 
-// server.use("/users", userRoutes);
+server.use("/users", userRoutes);
 // server.use("/habits", habitRoutes);
 
 server.listen(port, () =>
