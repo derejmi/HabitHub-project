@@ -1,6 +1,6 @@
 const { Pool } = require("pg");
 
-// const pool = new Pool({ database:  }); UNCOMMENT WHEN DB NAME IS SORTED
+const pool = new Pool({ database: "habithub" });
 
 function run(q, values, callback) {
   return pool.query(q, values, callback);
