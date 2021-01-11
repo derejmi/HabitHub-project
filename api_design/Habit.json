@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "Going to the Gym",
+  "updated_date": "20-01-2020",
+  "frequency": 1,
+  "due_date": "21-01-2020",
+  "streak": 2,
+  "user_id": 1
+}
