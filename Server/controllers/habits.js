@@ -12,6 +12,15 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get('/:id', async (req, res) => {
+  try {
+    const shabit = await Habit.findBy(parseInt(req.params.id))
+    res.json(shabit)
+  } catch(err) {
+    res.status(404).json({err})
+  }
+})
+
 router.post('/', async (req, res) => {
     try {
       const newHabit = await Habit.create(
@@ -26,5 +35,8 @@ router.post('/', async (req, res) => {
     }
   })
   
+
+
+
 
 module.exports = router;

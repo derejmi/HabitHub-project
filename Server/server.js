@@ -14,6 +14,7 @@ const habitRoutes = require("./controllers/habits.js");
 server.use("/users", userRoutes);
 server.use("/habits", habitRoutes);
 
+
 server.listen(port, () =>
   console.log(`Habithub server online at port ${port}`)
 );

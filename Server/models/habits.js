@@ -5,6 +5,7 @@ const router = require('../controllers/users');
 
 class Habit {
     constructor(data){
+        this.id = data.id;
         this.name = data.name;
         this.updated_date = data.updated_date;
         this.frequency = data.frequency;
@@ -39,6 +40,18 @@ class Habit {
             rej(`Error makign user ${err}`);
           }
         });
+      }
+
+      static findBy (id) {
+        return new Promise(async (res, rej) => {
+          try{
+            const habitData = await db.run(SQL`SELECT * FROM habits where id = ${id};`);
+            let habitById = new Habit(habitData.rows[0]);
+            res(habitById);
+          } catch(err) {
+            rej("Id invalid, habit not found")
+          }
+        })
       }
 }
 module.exports = Habit;
