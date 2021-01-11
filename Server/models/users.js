@@ -11,9 +11,7 @@ class User {
   static get all() {
     return new Promise(async (res, rej) => {
       try {
-        console.log("Hi");
         let q = await db.run(SQL`SELECT * FROM users;`);
-        console.log(q);
         let users = q.rows.map((f) => new User(f));
         res(users);
       } catch (err) {
@@ -22,15 +20,17 @@ class User {
     });
   }
 
-  static create({ username, email, user_password }) {
+  static create(username, email, password) {
     return new Promise(async (res, rej) => {
       try {
-        let qt = await db.run(SQL`INSERT INTO users (username, user_password))
-              VALUES (${username},${email}, ${user_password}) RETURNING *;`);
-        let user = new User(qt.rows[0]);
+        const userData = await db.run(SQL`INSERT INTO users (username, email, password)
+              VALUES (${username},${email}, ${password}) RETURNING *;`);
+        console.log(userData);
+        let user = new User(userData.rows[0]);
+        console.log(user, "newUser");
         res(user);
       } catch (err) {
-        rej(`Error makign user ${err}`);
+        rej(`Error making user ${err}`);
       }
     });
   }
@@ -40,8 +40,8 @@ class User {
       try {
         let result = await db.run(SQL`SELECT * FROM users
                                                 WHERE email = ${email};`);
-        let user = new User(result.rows[0]);
-        res(user);
+        console.log(result, "result");
+        res(result);
       } catch (err) {
         rej(`Error retrieving user: ${err}`);
       }
