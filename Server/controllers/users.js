@@ -1,11 +1,15 @@
 const express = require("express");
 const router = express.Router();
 
-const User = require("../models/users");
+const User = require("../models/User");
 
 router.get("/", async (req, res) => {
-  const users = await User.all;
-  res.json(users);
+  try {
+    const users = await User.all;
+    res.json(users);
+  } catch (err) {
+    res.status(400).send({ err });
+  }
 });
 
 module.exports = router;

@@ -8,11 +8,10 @@ services:
     working_dir: /server
     ports:
       - 3000:3000
-      - 9229:9229
     environment:
       - PGUSER=futureproof
       - PGHOST=db
-      - PGPASSWORD=DeDrPaRi
+      - PGPASSWORD=shelterpass
       - PGDATABASE=habithub
       - PGPORT=5432
     depends_on:
@@ -33,6 +32,6 @@ services:
     environment:
       - POSTGRES_DB=habithub
       - POSTGRES_USER=futureproof
-      - POSTGRES_PASSWORD=DeDrPaRi
+      - POSTGRES_PASSWORD=shelterpass
 volumes:
   dbdata1:

@@ -3,12 +3,13 @@ DROP TABLE IF EXISTS users;
 CREATE TABLE users(
     id serial PRIMARY KEY,
     username VARCHAR(200) NOT NULL,
-    user_password VARCHAR(100) NOT NULL
+    email VARCHAR(200) NOT NULL,
+    password VARCHAR(100) NOT NULL
 );
 
-INSERT INTO users (username, user_password)
+INSERT INTO users (username, email, password)
 VALUES
-    ('Bob101', 'diodiojdijHUdknjdkksgYGjnsksjiJnsjjsnjHHS');
+    ('Bob101', 'bob@gmail.com','diodiojdijHUdknjdkksgYGjnsksjiJnsjjsnjHHS');
 
 
 
@@ -26,9 +27,9 @@ CREATE TABLE habits(
 );
 
 
-INSERT INTO habits (name, updated_date, frequency, due_date, streak)
+INSERT INTO habits (name, updated_date, frequency, due_date, streak, users_id)
 VALUES
-    ('Gym', '2021-01-20', 1, '2021-01-21', 2);
+    ('Gym', '2021-01-20', 1, '2021-01-21', 2, 1);
 
 
 
