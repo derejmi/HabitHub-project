@@ -4,6 +4,7 @@ const SQL = require("sql-template-strings");
 class User {
   constructor(data) {
     this.username = data.username;
+    this.email = data.email;
     this.password = data.password;
   }
 
@@ -21,11 +22,11 @@ class User {
     });
   }
 
-  static create({ username, user_password }) {
+  static create({ username, email, user_password }) {
     return new Promise(async (res, rej) => {
       try {
         let qt = await db.run(SQL`INSERT INTO users (username, user_password))
-              VALUES (${username}, ${user_password}) RETURNING *;`);
+              VALUES (${username},${email}, ${user_password}) RETURNING *;`);
         let user = new User(qt.rows[0]);
         res(user);
       } catch (err) {
