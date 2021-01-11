@@ -1,10 +1,12 @@
 const express = require("express");
 const cors = require("cors");
+const passport = require("passport");
 
 const server = express();
 server.use(cors());
 //apply middleware to incoming requests
 server.use(express.json());
+server.use(passport.initialize());
 
 const port = 3000;
 
