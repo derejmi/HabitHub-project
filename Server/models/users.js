@@ -40,7 +40,6 @@ class User {
       try {
         let result = await db.run(SQL`SELECT * FROM users
                                                 WHERE email = ${email};`);
-        console.log(result, "result");
         res(result);
       } catch (err) {
         rej(`Error retrieving user: ${err}`);

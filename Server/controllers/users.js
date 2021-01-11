@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const bcrypt = require("bcryptjs");
-
 const User = require("../models/Users");
+const bcrypt = require("bcryptjs");
+const keys = require("../config/keys");
+const jwt = require("jsonwebtoken");
 
 router.get("/", async (req, res) => {
   try {
@@ -33,6 +34,39 @@ router.post("/register", async (req, res) => {
     }
   } catch (err) {
     res.send(err);
+  }
+});
+
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  //we then look up the user by that email
+  //we verify that they have the right password using bcrypt
+  try {
+    const result = await User.findByEmail(email);
+    const user = result.rows[0];
+    if (!result.rows.length) {
+      throw new Error("No user with this email");
+    }
+    //check the client has provided the correct password for this user
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!!isMatch) {
+      const payload = {
+        id: user.id,
+        username: user.username,
+        email: user.email,
+      };
+      jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+        res.json({
+          success: true,
+          token: "Bearer " + token,
+        });
+      });
+      // res.status(200).json({ user });
+    } else {
+      throw new Error("User could not be authenticated, password is incorrect");
+    }
+  } catch (err) {
+    res.status(401).json({ msg: `${err}` });
   }
 });
 
