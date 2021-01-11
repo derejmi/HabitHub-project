@@ -19,16 +19,17 @@
     background-color: var(--mainbackground);
     height: 50vh;
     padding: 2rem;
-    z-index: -2;
-    opacity: 0.5;
+    /* z-index: -2; */
+    /* opacity: 0.5; */
 }
 
 .welcomeVideo{
-    z-index: 10;
+    z-index: 1;
     position: absolute;
     height: 50%;
     width: 60%;
     margin: auto;
+    opacity: 0.8;
 }
 
 .quotationContainer{
