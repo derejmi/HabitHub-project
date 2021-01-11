@@ -12,4 +12,19 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+    try {
+      const newHabit = await Habit.create(
+          req.body.name, 
+          req.body.updated_date, 
+          req.body.frequency, 
+          req.body.due_date
+          );
+      res.status(200).json(newHabit)
+    } catch(err){
+        res.status(404).json({err})
+    }
+  })
+  
+
 module.exports = router;

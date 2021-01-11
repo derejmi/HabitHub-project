@@ -5,11 +5,11 @@ const router = require('../controllers/users');
 
 class Habit {
     constructor(data){
-        this.name = data.name
-        this.updated_date = data.updated_date
-        this.frequency = data.frequency,
-        this.due_date = data.due_date,
-        this.streak = data.streak
+        this.name = data.name;
+        this.updated_date = data.updated_date;
+        this.frequency = data.frequency;
+        this.due_date = data.due_date;
+        
     }
 
 
@@ -24,6 +24,19 @@ class Habit {
             res(habit);
           } catch (err) {
             rej(`Error getting habit: ${err}`);
+          }
+        });
+      }
+
+      static create( name, updated_date, frequency, due_date) {
+        return new Promise(async (res, rej) => {
+          try {
+            let qt = await db.run(SQL`INSERT INTO habits (name, updated_date, frequency, due_date)
+                  VALUES (${name},${updated_date}, ${frequency}, ${due_date}) RETURNING *;`);
+            let newHabit = new Habit(qt.rows[0]);
+            res(newHabit);
+          } catch (err) {
+            rej(`Error makign user ${err}`);
           }
         });
       }
