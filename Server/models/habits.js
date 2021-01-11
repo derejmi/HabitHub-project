@@ -53,5 +53,55 @@ class Habit {
           }
         })
       }
+
+
+      // updateFreq(){
+      //   return new Promise(async (res, rej) => {
+      //     try {
+      //       let updatedFreqData = await db.run(SQL`UPDATE habits SET frequency = ${this.frequency} WHERE id = ${this.id} RETRUNING *;`);
+      //       let updatedFreq = new Habit(updatedFreqData.rows[0])
+      //       res(updatedFreq)
+
+      //     } catch(err) {
+      //       rej('Could not update freq')
+      //     }
+      //   })
+      // } 
+
+      // updatedName(){
+      //   return new Promise(async (res, rej) => {
+      //     try {
+      //       let updatedNameData = await db.run(SQL`UPDATE habits SET name = ${this.name} WHERE id = ${this.id} RETURNING *;`);
+      //       let updateName = new Habit(updatedNameData.rows[0])  
+      //       res(updateName)
+      //     } catch(err) {
+      //       rej('could not update the habit')
+      //     }
+      //   })
+      // }
+
+      destroy(){
+        return new Promise(async(resolve, reject) => {
+          try{
+            await db.run(SQL`DELETE FROM habits WHERE id = ${this.id};`);
+            resolve("Habit deleted")
+          } catch (err) {
+            reject('Could not delete habit')
+          }
+        })
+      }
+
+    
+      
+
+
+
+
+
 }
+
+
+
+
+
 module.exports = Habit;
