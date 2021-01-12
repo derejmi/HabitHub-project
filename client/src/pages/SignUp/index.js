@@ -10,13 +10,18 @@ class SignUp extends Component {
 
   };
 
+  handleSignUpForm = e => {
+    e.preventDefault();
+    this.props.history.push('/habittrack')
+  }
+
   render(){
     return(
       <Jumbotron>
         <h1 className="titleHabitHub">Welcome to HabitHub</h1>
         
         <p> Create a new user:</p>
-        <Form action="">
+        <Form onSubmit={this.handleSignUpForm}>
             <label for="username">Username:</label>
             <input type="text" name="credentials" id="username"/><br/>
             <label for="password">Password:</label>

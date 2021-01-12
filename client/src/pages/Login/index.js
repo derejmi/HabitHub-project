@@ -10,13 +10,18 @@ class Login extends Component {
 
   };
 
+  handleLoginForm = e => {
+    e.preventDefault();
+    this.props.history.push('/habittrack')
+  }
+
   render(){
     return(
       <Jumbotron>
         <h1 className="titleHabitHub">Welcome back to HabitHub</h1>
         
         <p> Please log in with your credentials:</p>
-        <Form action="">
+        <Form onSubmit={this.handleLoginForm}>
             <label for="username">Username:</label>
             <input type="text" name="credentials" id="username"/><br/>
             <label for="password">Password:</label>

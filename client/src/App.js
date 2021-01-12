@@ -7,7 +7,30 @@ import { BackButton } from './components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
+
 class App extends Component {
+  
+    state = {
+        user:{
+          id: 0,
+          username: ' ', 
+          email: ' ',
+          password:' '
+        },
+        habitContainer: [
+          habit1:{
+            id: 0 ,
+            name: " ",
+            updatedDate: "date",
+            frequency: 0,
+            dueDate: ' ' ,
+            streak: 0,
+            userId: " " 
+          }
+        ]
+      };
+
+
 
   render(){
     return(

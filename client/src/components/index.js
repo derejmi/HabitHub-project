@@ -1,6 +1,3 @@
-export { default as Greeting } from './Greeting';
-export { default as ReaderCount } from './ReaderCount';
-export { default as Headlines } from './Headlines';
-export { default as FeaturedArticle } from './FeaturedArticle';
-export { default as FaveButton } from './FaveButton';
-export { default as BackButton } from './BackButton';
+export { default as HabitTable } from './HabitTable';
+export { default as NewHabitRow } from './NewHabitRow';
+export { default as TableButtons } from './TableButtons';
