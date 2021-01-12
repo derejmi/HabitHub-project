@@ -11,8 +11,8 @@ class User {
   static get all() {
     return new Promise(async (res, rej) => {
       try {
-        let q = await db.run(SQL`SELECT * FROM users;`);
-        let users = q.rows.map((f) => new User(f));
+        let result = await db.run(SQL`SELECT * FROM users;`);
+        let users = result.rows.map((user) => new User(user));
         res(users);
       } catch (err) {
         rej(`Error getting users: ${err}`);
