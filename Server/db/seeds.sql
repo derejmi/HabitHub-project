@@ -23,7 +23,7 @@ CREATE TABLE habits(
     frequency INT NOT NULL,
     due_date DATE NOT NULL,
     streak INT,
-    users_id int REFERENCES users(id)
+    users_id int 
 );
 
 
