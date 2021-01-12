@@ -1,0 +1,59 @@
+# API Definition
+
+## Entity Definitions 
+### User:
+- id: uuid 
+- username: string(unique) 
+- email:string
+- password: string 
+
+
+### Habit:
+- id: uuid
+- name: string
+- updated_date: date
+- frequency: integer
+- due_date: date 
+- streak: integer
+- user_id: string
+
+
+## Endpoint Definitions
+
+### Auth
+
+login(username: string, password:string)
+   => User
+
+register(username: string, password:string)
+   => User
+
+
+### Users (Development only)
+ListUsers
+=> User[]
+
+
+
+### Habits 
+
+CreateHabit(name:string, frequency:integer)
+  => Habit
+
+ListHabits 
+  => Habit[]
+
+GetHabit(id:uuid)
+  => Habit
+
+UpdateHabit(id:uuid)
+  => Habit
+
+DeleteHabit(id:uuid)
+  => Habit
+
+
+
+
+
+
