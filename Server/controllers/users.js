@@ -4,6 +4,9 @@ const User = require("../models/Users");
 const bcrypt = require("bcryptjs");
 const keys = require("../config/keys");
 const jwt = require("jsonwebtoken");
+const passport = require("passport");
+const validRegistration = require("../validation_helpers/register");
+const validateLogin = require("../validation_helpers/login");
 
 router.get("/", async (req, res) => {
   try {
@@ -14,8 +17,20 @@ router.get("/", async (req, res) => {
   }
 });
 
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => res.send(req.user)
+);
+
 router.post("/register", async (req, res) => {
   try {
+    console.log(req.body, "reqbody");
+    const { errors, isValid } = validRegistration(req.body);
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
@@ -38,10 +53,16 @@ router.post("/register", async (req, res) => {
 });
 
 router.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  //we then look up the user by that email
-  //we verify that they have the right password using bcrypt
   try {
+    console.log(req.body, "login");
+    const { errors, isValid } = validateLogin(req.body);
+    console.log(errors);
+    if (!isValid) {
+      return res.status(400).json(errors);
+    }
+    const { email, password } = req.body;
+    //we then look up the user by that email
+    //we verify that they have the right password using bcrypt
     const result = await User.findByEmail(email);
     const user = result.rows[0];
     if (!result.rows.length) {
