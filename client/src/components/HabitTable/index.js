@@ -3,6 +3,16 @@ import Table from 'react-bootstrap/Table';
 import NewHabitRow from '../NewHabitRow';
 
 class HabitTable extends Component {
+
+    state = {
+        habitFreq: 0,
+    };
+
+    freqCounter = e => {       
+        const checked = e.target.checked;
+        checked ? this.setState({habitFreq: this.state.habitFreq+1}) : this.setState({habitFreq: this.state.habitFreq-1})
+    }
+
     render() {
         return (
             <>
@@ -24,7 +34,7 @@ class HabitTable extends Component {
                                 <th>Week total</th>
                             </tr>
                         </thead>
-                        <NewHabitRow />
+                        <NewHabitRow increaseFreqCount={this.freqCounter} weekTotal={this.state.habitFreq}/>
                     </Table>
                 </div>
             </>

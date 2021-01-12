@@ -14,7 +14,7 @@ class NewHabitRow extends Component {
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td>Total:</td>
+                            <td>Total: {this.props.weekTotal}</td>
                         </tr>                 
                 </tbody>
         );

@@ -17,18 +17,27 @@ class App extends Component {
           email: ' ',
           password:' '
         },
-        habitContainer: [
-          habit1:{
-            id: 0 ,
-            name: " ",
-            updatedDate: "date",
-            frequency: 0,
-            dueDate: ' ' ,
-            streak: 0,
-            userId: " " 
-          }
-        ]
-      };
+        habits: [
+          {          
+            id: 1 ,
+            name: "Exercise ",
+            updated_date: '2021-21-20',
+            frequency: 1,
+            dueDate: '2020-01-22' ,
+            streak: 2,
+            user_id: "1" 
+          },
+        {
+            id: 2 ,
+            name: "Mindfulness",
+            updated_date: '2021-21-20',
+            frequency: 1,
+            due_date: '2020-01-22',
+            streak: 1,
+            user_id: "1" 
+        }
+      ],
+    };
 
 
 
