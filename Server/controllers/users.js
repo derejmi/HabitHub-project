@@ -17,10 +17,18 @@ router.get("/", async (req, res) => {
   }
 });
 
+//private auth route
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
-  (req, res) => res.send(req.user)
+  (req, res) => {
+    console.log("reaching current");
+    res.json({
+      id: req.user.id,
+      username: req.user.username,
+      email: req.user.email,
+    });
+  }
 );
 
 router.post("/register", async (req, res) => {
@@ -77,6 +85,7 @@ router.post("/login", async (req, res) => {
         email: user.email,
       };
       jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+        console.log(payload);
         res.json({
           success: true,
           token: "Bearer " + token,
