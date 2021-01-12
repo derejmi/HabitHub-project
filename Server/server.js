@@ -5,6 +5,9 @@ const server = express();
 server.use(cors());
 //apply middleware to incoming requests
 server.use(express.json());
+const passport = require("passport");
+server.use(passport.initialize());
+require("./config/passport")(passport);
 
 const port = 3000;
 
