@@ -3,7 +3,7 @@ import './style.css';
 
 const Footer = () => {
     return (
-        <span id="footer">&copy; futureproof 2020</span>
+        <span id="footer"> Crated by Habitbub Team | &copy; futureproof 2020</span>
     );
 }
 
