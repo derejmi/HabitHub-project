@@ -2,7 +2,6 @@
 /build
 
 .DS_Store
- ../.DS_Store
 wiki_guide.md
 
 /coverage

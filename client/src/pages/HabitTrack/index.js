@@ -1,32 +1,36 @@
 import React, { Component } from 'react';
 import {Button, Form} from 'react-bootstrap';
-import {TableButtons, HabitTable} from '../../components'
+import {HabitContainer} from '../../components';
 
 class HabitTrack extends Component {
 
-    state = {};
+    state = {
+        rowList: [],
+        habitFreq: 0
+    };
 
-    componentDidMount(){
-        const token = localStorage.get("token")
-        this.setState{token}
-        const user = localStorage.get("user')
-        this.setState{user}
-        if(user)this.setState{isAuthenticated: true}
-    }    
+    // componentDidMount(){
+    //     const token = localStorage.get("token")
+    //     this.setState{token}
+    //     const user = localStorage.get("user')
+    //     this.setState{user}
+    //     if(user)this.setState{isAuthenticated: true}
+    // }
+    freqCounter = e => {       
+        const checked = e.target.checked;
+        checked ? this.setState({habitFreq: this.state.habitFreq+1}) : this.setState({habitFreq: this.state.habitFreq-1})
+    }
 
-    renderNewRow = () => {
-        console.log('I have been clicked');
+    renderNewRow = e => {        
+        this.setState({rowList: this.state.rowList.push(<NewHabitRow key={rowList.length}
+                                                                     increaseFreqCount={this.freqCounter}
+                                                                     weekTotal={this.state.habitFreq}
+                                                                     />)});
     }
 
     render() {
         return (
-            <Form>
-                <HabitTable renderNewRow={this.renderNewRow}/>
-                <TableButtons renderNewRow={this.renderNewRow}/>
-                <div className="submit-buttons habit-table">
-                        <Button className="genButtons" variant="info" type="submit">Submit</Button>{' '}
-                </div> 
-            </Form>
+                <HabitContainer renderNewRow={this.renderNewRow} rowList={this.state.rowList}/> 
         );
     }
 }
