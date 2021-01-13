@@ -1,0 +1,7 @@
+#footer {
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    background-color: #64A2AF;
+    padding: 20px;
+}
