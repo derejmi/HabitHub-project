@@ -7,9 +7,9 @@ CREATE TABLE users(
     password VARCHAR(100) NOT NULL
 );
 
-INSERT INTO users (username, email, password)
+INSERT INTO users (username,email,password)
 VALUES
-    ('Bob101', 'bob@gmail.com','diodiojdijHUdknjdkksgYGjnsksjiJnsjjsnjHHS');
+    ('billy1999','billly19998@gmail.com','$2a$10$v5feHH7KyYaneZW.hMdjMe9bG.nq.Ih1I/eZJIQM0vtFiYCsmtxVS');
 
 
 
@@ -27,7 +27,9 @@ CREATE TABLE habits(
 
 INSERT INTO habits (name, updated_date, streak, users_id)
 VALUES
-    ('Gym', '2021-01-20', 2, 1);
+
+    ('Gym','2021-01-20',2,1);
+
 
 
 
