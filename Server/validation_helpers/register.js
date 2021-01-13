@@ -23,8 +23,8 @@ module.exports = function validateRegistation(data) {
     errors.email = "Email must be valid";
   }
 
-  if (!Validator.isLength(data.password, { min: 8, max: 50 })) {
-    errors.password = "Password must be between 8 and 50 characters";
+  if (!Validator.isLength(data.password, { min: 4, max: 50 })) {
+    errors.password = "Password must be between 4 and 50 characters";
   }
 
   if (!Validator.equals(data.password, data.password2)) {

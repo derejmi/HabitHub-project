@@ -9,7 +9,7 @@ CREATE TABLE users(
 
 INSERT INTO users (username, email, password)
 VALUES
-    ('Bob101', 'bob@gmail.com','diodiojdijHUdknjdkksgYGjnsksjiJnsjjsnjHHS');
+    ("billy1999", "billly19998@gmail.com","$2a$10$v5feHH7KyYaneZW.hMdjMe9bG.nq.Ih1I/eZJIQM0vtFiYCsmtxVS");
 
 
 
@@ -20,16 +20,13 @@ CREATE TABLE habits(
     id serial PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     updated_date DATE NOT NULL,
-    frequency INT NOT NULL,
-    due_date DATE NOT NULL,
     streak INT,
-    users_id int REFERENCES users(id)
+    users_id int 
 );
 
 
-INSERT INTO habits (name, updated_date, frequency, due_date, streak, users_id)
+INSERT INTO habits (name, updated_date, streak, users_id)
 VALUES
-    ('Gym', '2021-01-20', 1, '2021-01-21', 2, 1);
-
+    ('Gym', '2021-01-20', 2, 1);
 
 
