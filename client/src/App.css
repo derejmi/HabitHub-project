@@ -92,3 +92,16 @@ video{
     display: flex;
     justify-content: space-between;
 }
+
+/* general rule for all buttons */
+.genButtons{
+    background-color: var(--buttonBackround);
+    border-radius: 10px;
+    color: #11104f;
+    border: none;
+}
+
+.btn-info:hover{
+    background-color: var(--buttonBackround);
+    border: 1px solid #11104f;
+}
