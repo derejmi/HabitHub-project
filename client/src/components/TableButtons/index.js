@@ -8,13 +8,13 @@ import DropdownButton from 'react-bootstrap/DropdownButton';
 class TableButtons extends Component {
    //set new habit
    state = {
-            name:'work',
-            frequency:'monthly'
+            name:'',
+            frequency:''
         }   
     
     handleSelectHabit = (e)=>{
         const habit = this.setState({name: e});
-        console.log(habit)
+        console.log(this.state.habit)
       }
     
       handleSelectFreq = (e)=>{

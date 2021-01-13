@@ -105,3 +105,11 @@ video{
     background-color: var(--buttonBackround);
     border: 1px solid #11104f;
 }
+.btn-info.disabled{
+    background-color: var(--buttonBackround);
+    border: none;
+}
+
+.btn:disabled{
+    opacity: 0.5;
+}
