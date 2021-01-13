@@ -3,6 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
+import {TableButtons} from '../../components'
 
 class HabitTrack extends Component {
     render() {
@@ -37,21 +38,11 @@ class HabitTrack extends Component {
                         </tr>                 
                     </tbody>
                 </Table>
-                <div className="table-buttons">
-                    <DropdownButton variant="light" title="Select New Habit">
-                        <Dropdown.Item href="#/action-1">Exercise</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Balanced nutrition</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Mindfulness</Dropdown.Item>
-                        <Dropdown.Item href="#/action-4">Smoking</Dropdown.Item>
-                        <Dropdown.Item href="#/action-5">Drinking</Dropdown.Item>
-                    </DropdownButton>
-                    <DropdownButton variant="light" title="Choose tracking frequency">
-                        <Dropdown.Item href="#/action-1">Daily</Dropdown.Item>
-                        <Dropdown.Item href="#/action-2">Weekly</Dropdown.Item>
-                        <Dropdown.Item href="#/action-3">Monthly</Dropdown.Item>
-                    </DropdownButton>
-                    <Button variant="info">Add new habit</Button>{' '}
-                </div>
+                <TableButtons />
+                <div className="submit-buttons habit-table">
+                        <Button className="genButtons" variant="info" type="submit">Submit</Button>{' '}              
+                        <Button className="genButtons" variant="info" onClick={this.resetForm}>Quit</Button>{' '}
+                </div> 
             </>
         );
     }
