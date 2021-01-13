@@ -10,7 +10,7 @@ class Habit {
         this.updated_date = data.updated_date;
         this.users_id = data.users_id;
         this.streak = data.streak;
-        this.newStreak = data.newStreak;
+
     }
 
 
@@ -32,7 +32,7 @@ class Habit {
       static create( name, updated_date, users_id, streak) {
         return new Promise(async (res, rej) => {
           try {
-            let qt = await db.run(SQL`INSERT INTO habits (name, updated_date, frequency, due_date, users_id, streak)
+            let qt = await db.run(SQL`INSERT INTO habits (name, updated_date, users_id, streak)
                   VALUES (${name},${updated_date}, ${users_id}, ${streak}) RETURNING *;`);
             let newHabit = new Habit(qt.rows[0]);
             res(newHabit);
