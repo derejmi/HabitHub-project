@@ -27,6 +27,9 @@ CREATE TABLE habits(
 
 INSERT INTO habits (name, updated_date, streak, users_id)
 VALUES
+
     ('Gym','2021-01-20',2,1);
+
+
 
 

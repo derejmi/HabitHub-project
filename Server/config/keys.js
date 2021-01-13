@@ -1,3 +1,3 @@
 module.exports = {
-  secretOrKey: "insertactualkeyhere",
+  secretOrKey: "/MJIt-%z1e-~DZr6%wwFIn*zHWt+>:",
 };
