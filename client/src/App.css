@@ -1,115 +1,118 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap');
-:root{
-    --titlefont: 'Cinzel', serif;
-    --textfont:'Montserrat', sans-serif;
-    --motivationalSentencefont: 'Lobster Two', cursive;
-    --mainbackground: #CDEBE8;
-    --buttonBackround: #64A2AF ;
-    --fontColor: #3f3f41; 
-    --titleColor:  #11104f;
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap");
+:root {
+  --titlefont: "Cinzel", serif;
+  --textfont: "Montserrat", sans-serif;
+  --motivationalSentencefont: "Lobster Two", cursive;
+  --mainbackground: #cdebe8;
+  --buttonBackround: #64a2af;
+  --fontColor: #3f3f41;
+  --titleColor: #11104f;
 }
 
-.titleHabitHub{
-    font-family: var(--titlefont);
-    color: var(--titleColor);
+.titleHabitHub {
+  font-family: var(--titlefont);
+  color: var(--titleColor);
 }
 
-.jumbotron{
-    background-color: var(--mainbackground);
-    height: 45%;
-    padding: 0rem 2rem;
-    z-index: 3; 
-    margin-bottom: 0;
-    border-radius: 0; 
+.jumbotron {
+  background-color: var(--mainbackground);
+  height: 45%;
+  padding: 0rem 2rem;
+  z-index: 3;
+  margin-bottom: 0;
+  border-radius: 0;
 }
 
-video{
-    padding:0;
-    margin:0;
-    border-radius: 0;
-    
+video {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
 }
 
-.welcomeVideo{
-    opacity: 0.8;
-    object-fit: fill;
-    border-radius: 50px;
-    padding: 2em;
-    opacity: 0.6;
-    z-index: -1; 
+.welcomeVideo {
+  opacity: 0.8;
+  object-fit: fill;
+  border-radius: 50px;
+  padding: 2em;
+  opacity: 0.6;
+  z-index: -1;
 }
- video{
-     padding:0;
-     margin:0;
-     border-radius: 0;
-
- }
+video {
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
 
 @media (min-aspect-ratio: 16/9) {
-    .welcomeVideo {
-        width: 100%;
-        height: 10%;
-    }
+  .welcomeVideo {
+    width: 100%;
+    height: 10%;
+  }
 }
 
 @media (max-aspect-ratio: 16/9) {
-    .welcomeVideo { 
-        width: auto;
-        height: 75%;
-    }
+  .welcomeVideo {
+    width: auto;
+    height: 75%;
+  }
 }
 @media (max-width: 767px) {
-    .welcomeVideo {
-        display: none;
-    }
-    .jumbotron {
-        background-image: url("./pages/Welcome/underwater.png"); 
-        background-size: cover;
-    }
+  .welcomeVideo {
+    display: none;
+  }
+  .jumbotron {
+    background-image: url("./pages/Welcome/underwater.png");
+    background-size: cover;
+  }
 }
-.quotationContainer{
-    height: 10vh;
-    width: 50%;
-    margin: 10vh auto 7vh;
-    text-align: center;
+.quotationContainer {
+  height: 10vh;
+  width: 50%;
+  margin: 10vh auto 7vh;
+  text-align: center;
 }
-.motivationalQuote{
-    font-family: var(--motivationalSentencefont);
-    color: var(--fontColor);
+.motivationalQuote {
+  font-family: var(--motivationalSentencefont);
+  color: var(--fontColor);
 }
 /* removing bootstrap css */
-.navbar{
-    background-color: var(--mainbackground);  
-    position: relative;
-    justify-content: flex-end;
-    padding: 0;
-    margin: 0;
-    
+.navbar {
+  background-color: var(--mainbackground);
+  position: relative;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
 }
 
 .table-buttons {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 /* general rule for all buttons */
-.genButtons{
-    background-color: var(--buttonBackround);
-    border-radius: 10px;
-    color: #11104f;
-    border: none;
+.genButtons {
+  background-color: var(--buttonBackround);
+  border-radius: 10px;
+  color: #11104f;
+  border: none;
 }
 
-.btn-info:hover{
-    background-color: var(--buttonBackround);
-    border: 1px solid #11104f;
+.btn-info:hover {
+  background-color: var(--buttonBackround);
+  border: 1px solid #11104f;
 }
-.btn-info.disabled{
-    background-color: var(--buttonBackround);
-    border: none;
+.btn-info.disabled {
+  background-color: var(--buttonBackround);
+  border: none;
 }
 
-.btn:disabled{
-    opacity: 0.5;
+.btn:disabled {
+  opacity: 0.5;
+}
+#err {
+  color: red;
+}
+#success {
+  color: white;
 }
