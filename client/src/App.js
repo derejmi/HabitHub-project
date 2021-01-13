@@ -44,6 +44,12 @@ class App extends Component {
     ],
   };
 
+  componentDidMount() {
+    if (localStorage.getItem("jwtToken")) {
+      this.setState({ isLoggedIn: true });
+    }
+  }
+
   login = async (userData) => {
     try {
       const options = {
