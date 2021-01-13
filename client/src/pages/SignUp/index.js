@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { withRouter } from 'react-router-dom';
 
 
 class SignUp extends Component {
@@ -16,8 +17,6 @@ class SignUp extends Component {
   handleInput = e => this.setState({ [e.target.name]: e.target.value})
   
   formIncomplete = () => Object.values(this.state).some(v => !v) || this.state.password !== this.state.password2
-
-  // formIncompleteResult = this.formIncomplete();
 
   signup = async e => {
     e.preventDefault();
@@ -50,20 +49,7 @@ class SignUp extends Component {
         })
     }
   };
-
-  resetForm = e => {
-    e.preventDefault();
-    this.setState({
-      username: "",
-      email: "",
-      password: "",
-      password2: ""
-  });
-
-    this.props.history.push('/')
-  }
-
-
+  resetForm = e => {this.props.history.push('/')}
   render(){
     return(
       <Jumbotron>
@@ -79,15 +65,16 @@ class SignUp extends Component {
             <input id="password2"  type="password" name="password2" value={this.state.password2} onChange={this.handleInput} placeholder="Confirm your password" /><br/>
             <label for="email">Email:</label>
             <input id="email" type="email" name="email" value={this.state.email} onChange={this.handleInput} placeholder="email" /><br/>
-            
-            <Button id="registerBtn" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled', 'genButtons'} disabled={this.formIncomplete()} >Submit details</Button>            
-          {/* <Button className="genButtons" variant="info" type="submit" >Submit details</Button>  */}
+            <Button id="registerBtn" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled', 'genButtons'} disabled={this.formIncomplete()} >Submit details</Button>
         </Form>
-        <Button className="genButtons" variant="info" onClick={this.resetForm}>Quit</Button>
+        <Button onClick={this.resetForm} className="genButtons" variant="info" type="reset">Quit</Button> 
       </Jumbotron>
+
+
+
     );
   };
 
 };
 
-export default SignUp;
+export default withRouter(SignUp);
