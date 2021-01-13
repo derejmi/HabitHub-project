@@ -81,13 +81,23 @@ class Habit {
       //   })
       // }
 
-      destroy(id, users_id){
+      // destroy(id, users_id){
+      //   return new Promise(async(resolve, reject) => {
+      //     try{
+      //       console.log("long message -----------------------------------------------------------------------------------")
+      //       const del = await db.run(SQL`DELETE FROM habits WHERE id = ${id} AND users_id = ${users_id};`);
+      //       console.log(del)
+      //       resolve("deleted")
+      //     } catch (err) {
+      //       reject('Could not delete habit')
+      //     }
+      //   })
+      // }
+      destroy(){
         return new Promise(async(resolve, reject) => {
           try{
-            console.log("long message -----------------------------------------------------------------------------------")
-            const del = await db.run(SQL`DELETE FROM habits WHERE id = ${id} AND users_id = ${users_id};`);
-            console.log(del)
-            resolve("deleted")
+            await db.run(SQL`DELETE FROM habits WHERE id = ${this.id};`);
+            resolve("Habits deleted")
           } catch (err) {
             reject('Could not delete habit')
           }

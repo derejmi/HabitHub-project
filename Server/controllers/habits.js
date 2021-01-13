@@ -60,23 +60,38 @@ async (req, res) => {
 // })
 
 
+// router.delete('/:id',
+// passport.authenticate("jwt", { session: false }),
+
+// async (req, res) => {
+//   try {
+    
+//     rid = parseInt(req.params.id)
+//     uid = req.user.id
+//     // const delHab = await Habit.findBy(
+//     const del = await Habit.destroy(rid, uid)
+    
+//     res.status(204).json()
+
+//   } catch(err) {
+//     res.status(500).json({err})
+//   }
+// })
 router.delete('/:id',
 passport.authenticate("jwt", { session: false }),
-
 async (req, res) => {
   try {
-    
-    rid = parseInt(req.params.id)
     uid = req.user.id
-    // const delHab = await Habit.findBy(
-    const del = await Habit.destroy(rid, uid)
-    
-    res.status(204).json()
+    rid = parseInt(req.params.id)
+    const delHab = await Habit.findBy(rid,uid)
+    await delHab.destroy()
+    res.status(204).json("deleted")
 
   } catch(err) {
     res.status(500).json({err})
   }
 })
+
 
 
 
