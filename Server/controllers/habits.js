@@ -38,8 +38,6 @@ async (req, res) => {
       const newHabit = await Habit.create(
           req.body.name, 
           req.body.updated_date, 
-          req.body.frequency, 
-          req.body.due_date,
           req.user.id);
       res.status(200).json(newHabit)
     } catch(err){
@@ -58,6 +56,19 @@ async (req, res) => {
 
 //   }
 // })
+router.patch('/:id',
+passport.authenticate("jwt", { session: false }),
+async (req, res) => {
+  try {
+    uid = req.user.id
+    rid = parseInt(req.params.id)
+      const streak = await Habit.findBy(rid,uid)
+      const updateStreak = await streak.update(req.body.streak)
+      res.json({streak: updateStreak})
+  } catch(err) {
+      res.status(500).json({err})
+  }
+})
 
 
 // router.delete('/:id',

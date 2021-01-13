@@ -8,10 +8,9 @@ class Habit {
         this.id = data.id;
         this.name = data.name;
         this.updated_date = data.updated_date;
-        this.frequency = data.frequency;
-        this.due_date = data.due_date;
-        this.users_id = data.users_id
-        
+        this.users_id = data.users_id;
+        this.streak = data.streak;
+        this.newStreak = data.newStreak;
     }
 
 
@@ -30,11 +29,11 @@ class Habit {
         });
       }
 
-      static create( name, updated_date, frequency, due_date, users_id) {
+      static create( name, updated_date, users_id, streak) {
         return new Promise(async (res, rej) => {
           try {
-            let qt = await db.run(SQL`INSERT INTO habits (name, updated_date, frequency, due_date, users_id)
-                  VALUES (${name},${updated_date}, ${frequency}, ${due_date}, ${users_id}) RETURNING *;`);
+            let qt = await db.run(SQL`INSERT INTO habits (name, updated_date, frequency, due_date, users_id, streak)
+                  VALUES (${name},${updated_date}, ${users_id}, ${streak}) RETURNING *;`);
             let newHabit = new Habit(qt.rows[0]);
             res(newHabit);
           } catch (err) {
@@ -68,6 +67,17 @@ class Habit {
       //     }
       //   })
       // } 
+      update(streak) {
+        return new Promise (async (resolve, reject) => {
+            try {
+                let updatedStreakData = await db.run(SQL`UPDATE habits SET streak = ${streak}  WHERE id = ${this.id} RETURNING *;`);
+                let updatedStreak = new Habit(updatedStreakData.rows[0]);
+                resolve (updatedStreak);
+            } catch (err) {
+                reject('Error updating streak');
+            }
+        });
+    }
 
       // updatedName(){
       //   return new Promise(async (res, rej) => {
