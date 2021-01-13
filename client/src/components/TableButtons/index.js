@@ -13,8 +13,8 @@ class TableButtons extends Component {
         }   
     
     handleSelectHabit = (e)=>{
-        const habit = this.setState({name: e});
-        console.log(this.state.habit)
+        this.setState({name: e});
+        console.log(this.state.name)
       }
     
       handleSelectFreq = (e)=>{
@@ -32,13 +32,15 @@ class TableButtons extends Component {
         return (
             <>
                 <div className="table-buttons habit-table">
-                        <DropdownButton variant="light" title="Select New Habit" onSelect={this.handleSelectHabit}>
+                        <DropdownButton variant="light" title="" onSelect={this.handleSelectHabit}>
                             <Dropdown.Item eventKey="Exercise">Exercise</Dropdown.Item>
                             <Dropdown.Item eventKey="Balanced nutrition" >Balanced nutrition</Dropdown.Item>
                             <Dropdown.Item eventKey="Mindfulness" >Mindfulness</Dropdown.Item>
                             <Dropdown.Item eventKey="Smoking">Smoking</Dropdown.Item>
                             <Dropdown.Item eventKey="Drinking">Drinking</Dropdown.Item>
                         </DropdownButton>
+
+                        
                         <DropdownButton variant="light" title="Choose tracking frequency"onSelect={this.handleSelectFreq}>
                             <Dropdown.Item eventKey="Weekly">Weekly</Dropdown.Item>
                         </DropdownButton>

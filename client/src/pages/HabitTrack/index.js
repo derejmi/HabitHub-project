@@ -6,13 +6,13 @@ class HabitTrack extends Component {
 
     state = {};
 
-    componentDidMount(){
-        const token = localStorage.get("token")
-        this.setState{token}
-        const user = localStorage.get("user')
-        this.setState{user}
-        if(user)this.setState{isAuthenticated: true}
-    }
+    // componentDidMount(){
+    //     const token = localStorage.get("token")
+    //     this.setState{token}
+    //     const user = localStorage.get("user')
+    //     this.setState{user}
+    //     if(user)this.setState{isAuthenticated: true}
+    // }
 
     render() {
         return (

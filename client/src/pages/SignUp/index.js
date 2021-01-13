@@ -9,13 +9,13 @@ class SignUp extends Component {
       username: "",
       email: "",
       password: "",
-      confPassword: ""
+      password2: ""
   };
 
 
   handleInput = e => this.setState({ [e.target.name]: e.target.value})
   
-  formIncomplete = () => Object.values(this.state).some(v => !v) || this.state.password !== this.state.confPassword
+  formIncomplete = () => Object.values(this.state).some(v => !v) || this.state.password !== this.state.password2
 
   // formIncompleteResult = this.formIncomplete();
 
@@ -26,7 +26,7 @@ class SignUp extends Component {
             username: this.state.username,
             email: this.state.email,
             password: this.state.password,
-            confPassword: this.state.confPassword
+            password2: this.state.password2
         }
         const options = {
             method: 'POST',
@@ -38,7 +38,7 @@ class SignUp extends Component {
         const data = await r.json()
         if (data.err){ throw Error(data.err) }
         this.props.login(userData);
-        this.props.history.push('./signin')
+        this.props.history.push('/login')
     
     } catch (err) {
         console.warn(err);
@@ -46,7 +46,7 @@ class SignUp extends Component {
             username: "",
             email: "",
             password: "",
-            confPassword: ""
+            password2: ""
         })
     }
   };
@@ -57,7 +57,7 @@ class SignUp extends Component {
       username: "",
       email: "",
       password: "",
-      confPassword: ""
+      password2: ""
   });
 
     this.props.history.push('/')
@@ -76,7 +76,7 @@ class SignUp extends Component {
             <label for="password">Password:</label>
             <input id="password"  type="password" name="password" value={this.state.password} onChange={this.handleInput} placeholder="password" /><br/>
             <label for="password">Confirm password:</label>
-            <input id="confPassword"  type="password" name="confPassword" value={this.state.confPassword} onChange={this.handleInput} placeholder="Confirm password" /><br/>
+            <input id="password2"  type="password" name="password2" value={this.state.password2} onChange={this.handleInput} placeholder="Confirm your password" /><br/>
             <label for="email">Email:</label>
             <input id="email" type="email" name="email" value={this.state.email} onChange={this.handleInput} placeholder="email" /><br/>
             
