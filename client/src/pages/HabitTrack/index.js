@@ -12,13 +12,17 @@ class HabitTrack extends Component {
         const user = localStorage.get("user')
         this.setState{user}
         if(user)this.setState{isAuthenticated: true}
+    }    
+
+    renderNewRow = () => {
+        console.log('I have been clicked');
     }
 
     render() {
         return (
             <Form>
-                <HabitTable />
-                <TableButtons />
+                <HabitTable renderNewRow={this.renderNewRow}/>
+                <TableButtons renderNewRow={this.renderNewRow}/>
                 <div className="submit-buttons habit-table">
                         <Button className="genButtons" variant="info" type="submit">Submit</Button>{' '}
                 </div> 

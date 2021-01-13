@@ -12,6 +12,7 @@ class HabitTable extends Component {
         const checked = e.target.checked;
         checked ? this.setState({habitFreq: this.state.habitFreq+1}) : this.setState({habitFreq: this.state.habitFreq-1})
     }
+    
 
     render() {
         return (

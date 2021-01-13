@@ -24,10 +24,6 @@ class TableButtons extends Component {
       }
 
 
-      renderNewRaw = () => {
-        console.log('I have been clicked');
-    }
-
     render() {
         return (
             <>
@@ -42,7 +38,7 @@ class TableButtons extends Component {
                         <DropdownButton variant="light" title="Choose tracking frequency"onSelect={this.handleSelectFreq}>
                             <Dropdown.Item eventKey="Weekly">Weekly</Dropdown.Item>
                         </DropdownButton>
-                        <Button className="genButtons" variant="info" onClick={this.renderNewRaw}>Add new habit</Button>{' '}
+                        <Button className="genButtons" variant="info" onClick={this.props.renderNewRow}>Add new habit</Button>{' '}
                 </div>
             </>
             )
