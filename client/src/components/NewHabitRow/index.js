@@ -6,7 +6,7 @@ class NewHabitRow extends Component {
         return (
                 <tbody>
                         <tr>
-                            <td>Exercise</td>
+                            <td>{this.props.habitName}</td>
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
@@ -14,7 +14,8 @@ class NewHabitRow extends Component {
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
                             <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td>Total: {this.props.weekTotal}</td>
+                            <td>Total: {this.props.freq}</td>
+                            <td>Streak: {this.props.streak}</td>
                         </tr>                 
                 </tbody>
         );

@@ -4,4 +4,4 @@ export { default as NewHabitRow } from './NewHabitRow';
 export { default as HabitTable } from './HabitTable';
 export { default as LoggedOutRoute } from './LoggedOut';
 export { default as PrivateRoute } from './LoggedIn';
-export { default as logOutBtn } from './LogOutBtn';
+export { default as HabitContainer } from './HabitContainer';
