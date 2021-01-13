@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Button, Form} from 'react-bootstrap';
-import {HabitContainer} from '../../components';
+import { HabitContainer } from '../../components';
 
 class HabitTrack extends Component {
 
@@ -21,16 +21,16 @@ class HabitTrack extends Component {
         checked ? this.setState({habitFreq: this.state.habitFreq+1}) : this.setState({habitFreq: this.state.habitFreq-1})
     }
 
-    renderNewRow = e => {        
-        this.setState({rowList: this.state.rowList.push(<NewHabitRow key={rowList.length}
-                                                                     increaseFreqCount={this.freqCounter}
-                                                                     weekTotal={this.state.habitFreq}
-                                                                     />)});
-    }
+    // renderNewRow = e => {        
+    //     this.setState({rowList: this.state.rowList.push(<NewHabitRow key={rowList.length}
+    //                                                                  increaseFreqCount={this.freqCounter}
+    //                                                                  weekTotal={this.state.habitFreq}
+    //                                                                  />)});
+    //}
 
     render() {
         return (
-                <HabitContainer renderNewRow={this.renderNewRow} rowList={this.state.rowList}/> 
+                <HabitContainer /> 
         );
     }
 }
