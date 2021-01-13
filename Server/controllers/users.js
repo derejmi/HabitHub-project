@@ -84,13 +84,18 @@ router.post("/login", async (req, res) => {
         username: user.username,
         email: user.email,
       };
-      jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-        console.log(payload);
-        res.json({
-          success: true,
-          token: "Bearer " + token,
-        });
-      });
+      jwt.sign(
+        payload,
+        keys.secretOrKey,
+        { expiresIn: 36000 },
+        (err, token) => {
+          console.log(payload);
+          res.json({
+            success: true,
+            token: "Bearer " + token,
+          });
+        }
+      );
       // res.status(200).json({ user });
     } else {
       throw new Error("User could not be authenticated, password is incorrect");
@@ -99,7 +104,5 @@ router.post("/login", async (req, res) => {
     res.status(401).json({ msg: `${err}` });
   }
 });
-
-
 
 module.exports = router;
