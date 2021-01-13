@@ -32,19 +32,47 @@ class HabitContainer extends Component {
     const user = jwt_decode(token);
     console.log(user);
     this.setState({ user: user });
-    fetch("http://localhost:3000/habits")
-      .then((r) => r.json())
-      .then((data) => "...")
-      .then((data) =>
-        this.setState({
-          currentUser: data.currentUser,
-          habitContainer: data.habitContainer,
-        })
-      )
+
+    fetch("http://localhost:3000/habits", {
+      method: "GET",
+      headers: {
+        Authorization: token,
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({ habits: json });
+      })
       .catch((err) => {
         console.warn(`Sorry but...${err}`);
       });
   }
+
+  fetchHabits = () => {
+    fetch("http://localhost:3000/habits", {
+      method: "GET",
+      headers: {
+        Authorization: this.state.token,
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        this.setState({ habits: json });
+      })
+      .catch((err) => {
+        console.warn(`Sorry but...${err}`);
+      });
+  };
+
+  deleteHabits = (id) => {
+    console.log("deleting");
+    fetch(`http://localhost:3000/habits/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: this.state.token,
+      },
+    }).then(this.fetchHabits);
+  };
 
   render() {
     return (
@@ -67,14 +95,20 @@ class HabitContainer extends Component {
                 <th>Sat</th>
                 <th>Sun</th>
                 <th>Week total</th>
+                <th>Streak total</th>
+                <th>Update Streak</th>
+                <th>Delete Habit</th>
               </tr>
             </thead>
             {this.state.habits.map((habit, idx) => (
               <NewHabitRow
                 key={idx}
-                habitName={this.state.habitContainer[idx].name}
-                freq={this.state.habitContainer[idx].frequency}
-                streak={this.state.habitContaier[idx].streak}
+                habitName={this.state.habits[idx].name}
+                streak={this.state.habits[idx].streak}
+                details={this.state.habits[idx]}
+                user={this.state.user}
+                deleteHabits={this.deleteHabits}
+                fetchHabits={this.fetchHabits}
               />
             ))}
           </Table>

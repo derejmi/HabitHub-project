@@ -119,3 +119,11 @@ video {
 #login {
   color: white;
 }
+
+form {
+  margin-top: 40px;
+}
+
+footer {
+  margin-top: 50px;
+}
