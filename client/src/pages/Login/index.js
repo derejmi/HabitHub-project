@@ -9,8 +9,8 @@ class Login extends Component {
     password: "",
   };
 
-  handleInput = (e) => this.setState({ [e.target.name]: e.target.value });
-  //formIncomplete = () => Object.values(this.state).some(v => !v)
+  handleInput = e => this.setState({[e.target.name]: e.target.value })
+  formIncomplete = () => Object.values(this.state).some(v => !v)
 
   login = (e) => {
     e.preventDefault();
@@ -50,6 +50,17 @@ class Login extends Component {
           </Button>
         </Form>
         <p id="login"></p>
+          <h1 className="titleHabitHub">Welcome back to HabitHub</h1>
+          
+          <p> Please log in with your credentials:</p>
+          <Form onSubmit={this.login}>
+             <Form.Label>Email:</Form.Label>
+             <Form.Control id="email"  type="text" name="email" value={this.state.email} onChange={this.handleInput} placeholder="your email" /><br/>
+              <Form.Label>Password:</Form.Label>
+              <Form.Control id="password" type="password" name="password" value={this.state.password} onChange={this.handleInput} placeholder="password"/><br/>
+          <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in</Button>
+          </Form>
+             
       </Jumbotron>
     );
   }

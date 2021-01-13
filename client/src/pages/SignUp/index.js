@@ -6,10 +6,10 @@ import { withRouter } from "react-router-dom";
 
 class SignUp extends Component {
   state = {
-    username: "",
-    email: "",
-    password: "",
-    password2: "",
+      username: "",
+      email: "",
+      password: "",
+      password2: ""
   };
 
   handleInput = (e) => this.setState({ [e.target.name]: e.target.value });
@@ -132,6 +132,16 @@ class SignUp extends Component {
           >
             Submit details
           </Button>
+            <Form.Label >Username:</Form.Label>
+            <Form.Control id="username" type="text" name="username" value={this.state.username}  onChange={this.handleInput} placeholder="username" /><br/>
+            <Form.Label >Password:</Form.Label>
+            <Form.Control id="password"  type="password" name="password" value={this.state.password} onChange={this.handleInput} placeholder="password" /><br/>
+            <Form.Label>Confirm your password:</Form.Label>
+            <Form.Control id="password2"  type="password" name="password2" value={this.state.password2} onChange={this.handleInput} placeholder="Confirm your password" /><br/>
+            <Form.Label >Email:</Form.Label>
+            <Form.Control id="email" type="email" name="email" value={this.state.email} onChange={this.handleInput} placeholder="email" /><br/>
+            
+            <Button id="registerBtn" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled', 'genButtons'} disabled={this.formIncomplete()} >Submit details</Button>            
           {/* <Button className="genButtons" variant="info" type="submit" >Submit details</Button>  */}
         </Form>
         <Button className="genButtons" variant="info" onClick={this.resetForm}>
