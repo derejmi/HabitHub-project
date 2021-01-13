@@ -64,7 +64,7 @@ async (req, res) => {
     rid = parseInt(req.params.id)
       const streak = await Habit.findBy(rid,uid)
       const updateStreak = await streak.update(req.body.streak)
-      res.json({streak: updateStreak})
+      res.json(updateStreak)
   } catch(err) {
       res.status(500).json({err})
   }
