@@ -1,8 +1,17 @@
+<<<<<<< HEAD
+import React, { Component } from 'react';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import { withRouter } from 'react-router-dom';
+
+=======
 import React, { Component } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { withRouter } from "react-router-dom";
+>>>>>>> 1d3b66754810a2a18b5adfbeda7ad157467b7af4
 
 class SignUp extends Component {
   state = {
@@ -18,9 +27,13 @@ class SignUp extends Component {
     Object.values(this.state).some((v) => !v) ||
     this.state.password !== this.state.password2;
 
+<<<<<<< HEAD
+  signup = async e => {
+=======
   // formIncompleteResult = this.formIncomplete();
 
   signup = async (e) => {
+>>>>>>> 1d3b66754810a2a18b5adfbeda7ad157467b7af4
     e.preventDefault();
     try {
       const userData = {
@@ -60,6 +73,11 @@ class SignUp extends Component {
       });
     }
   };
+<<<<<<< HEAD
+  resetForm = e => {this.props.history.push('/')}
+  render(){
+    return(
+=======
 
   resetForm = (e) => {
     e.preventDefault();
@@ -75,11 +93,25 @@ class SignUp extends Component {
 
   render() {
     return (
+>>>>>>> 1d3b66754810a2a18b5adfbeda7ad157467b7af4
       <Jumbotron>
         <h1 className="titleHabitHub">Welcome to HabitHub</h1>
 
         <p> Create a new user:</p>
         <Form onSubmit={this.signup}>
+<<<<<<< HEAD
+            <label for="username">Username:</label>
+            <input id="username" type="text" name="username" value={this.state.username}  onChange={this.handleInput} placeholder="username" /><br/>
+            <label for="password">Password:</label>
+            <input id="password"  type="password" name="password" value={this.state.password} onChange={this.handleInput} placeholder="password" /><br/>
+            <label for="password">Confirm password:</label>
+            <input id="password2"  type="password" name="password2" value={this.state.password2} onChange={this.handleInput} placeholder="Confirm your password" /><br/>
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email" value={this.state.email} onChange={this.handleInput} placeholder="email" /><br/>
+            <Button id="registerBtn" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled', 'genButtons'} disabled={this.formIncomplete()} >Submit details</Button>
+        </Form>
+        <Button onClick={this.resetForm} className="genButtons" variant="info" type="reset">Quit</Button> 
+=======
           <label for="username">Username:</label>
           <input
             id="username"
@@ -139,9 +171,17 @@ class SignUp extends Component {
         </Button>
         <p id="err"></p>
         <p id="success"></p>
+>>>>>>> 1d3b66754810a2a18b5adfbeda7ad157467b7af4
       </Jumbotron>
+
+
+
     );
   }
 }
 
+<<<<<<< HEAD
 export default withRouter(SignUp);
+=======
+export default withRouter(SignUp);
+>>>>>>> 1d3b66754810a2a18b5adfbeda7ad157467b7af4

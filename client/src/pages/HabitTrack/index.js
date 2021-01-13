@@ -28,6 +28,8 @@ class HabitTrack extends Component {
     //                                                                  />)});
     //}
 
+    resetForm = e => {this.props.history.push('/')}
+
     render() {
         return (
                 <HabitContainer /> 
@@ -35,4 +37,4 @@ class HabitTrack extends Component {
     }
 }
 
-export default HabitTrack;
+export default withRouter(HabitTrack);

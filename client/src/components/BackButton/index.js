@@ -1,6 +1,7 @@
 import React from 'react';
+import Button from 'react-bootstrap/esm/Button';
 import { withRouter } from 'react-router-dom';
 
-const BackButton = ({ history }) => <button id="back-button" onClick={history.goBack}>Back</button>
+const BackButton = ({ history }) => <Button id="back-button" className="genButtons" variant="info" onClick={history.goBack}>Back</Button>
 
 export default withRouter(BackButton)
