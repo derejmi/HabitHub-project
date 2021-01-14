@@ -76,7 +76,8 @@ router.patch(
       const streak = await Habit.findBy(rid, uid);
       const updateStreak = await streak.update(
         req.body.streak,
-        req.body.week_total
+        req.body.week_total,
+        req.body.updated_date
       );
       res.json(updateStreak);
     } catch (err) {

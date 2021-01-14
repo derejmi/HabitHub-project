@@ -65,11 +65,11 @@ class Habit {
   //     }
   //   })
   // }
-  update(streak, week_total) {
+  update(streak, week_total, updated_date) {
     return new Promise(async (resolve, reject) => {
       try {
         let updatedStreakData = await db.run(
-          SQL`UPDATE habits SET streak = ${streak}, week_total = ${week_total} WHERE id = ${this.id} RETURNING *;`
+          SQL`UPDATE habits SET streak = ${streak}, week_total = ${week_total}, updated_date=${updated_date} WHERE id = ${this.id} RETURNING *;`
         );
         let updatedStreak = new Habit(updatedStreakData.rows[0]);
         resolve(updatedStreak);

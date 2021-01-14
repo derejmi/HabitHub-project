@@ -81,6 +81,7 @@ class HabitContainer extends Component {
     const userData = {
       streak,
       week_total,
+      updated_date: new Date(),
     };
     fetch(`http://localhost:3000/habits/${id}`, {
       method: "PATCH",
