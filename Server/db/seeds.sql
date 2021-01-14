@@ -20,15 +20,16 @@ CREATE TABLE habits(
     id serial PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     updated_date DATE NOT NULL,
-    streak INT,
+    week_total INT,
+     streak INT,
     users_id int 
 );
 
 
-INSERT INTO habits (name, updated_date, streak, users_id)
+INSERT INTO habits (name, updated_date,week_total,streak,users_id)
 VALUES
 
-    ('Gym','2021-01-20',2,1);
+    ('Gym','2021-01-13',0,0,1);
 
 
 

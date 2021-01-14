@@ -75,11 +75,12 @@ class HabitContainer extends Component {
     }).then(this.fetchHabits);
   };
 
-  updateHabits = (id, streak) => {
+  updateHabits = (id, streak, week_total) => {
     console.log("updating");
 
     const userData = {
       streak,
+      week_total,
     };
     fetch(`http://localhost:3000/habits/${id}`, {
       method: "PATCH",

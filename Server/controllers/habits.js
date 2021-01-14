@@ -46,7 +46,8 @@ router.post(
         req.body.name,
         req.body.updated_date,
         req.user.id,
-        req.body.streak
+        req.body.streak,
+        req.body.week_total
       );
       res.status(200).json(newHabit);
     } catch (err) {
@@ -73,7 +74,10 @@ router.patch(
       uid = req.user.id;
       rid = parseInt(req.params.id);
       const streak = await Habit.findBy(rid, uid);
-      const updateStreak = await streak.update(req.body.streak);
+      const updateStreak = await streak.update(
+        req.body.streak,
+        req.body.week_total
+      );
       res.json(updateStreak);
     } catch (err) {
       res.status(500).json({ err });

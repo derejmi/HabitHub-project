@@ -3,7 +3,7 @@ import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/esm/Button";
 
 class NewHabitRow extends Component {
-  state = { weekTotal: 0 };
+  state = { weekTotal: this.props.details.week_total };
 
   freqCounter = (e) => {
     const checked = e.target.checked;
@@ -108,7 +108,8 @@ class NewHabitRow extends Component {
                 this.props.updateStreak(
                   this.props.details.id,
                   this.props.details.updated_date,
-                  this.props.details.streak
+                  this.props.details.streak,
+                  this.state.weekTotal
                 )
               }
             >
