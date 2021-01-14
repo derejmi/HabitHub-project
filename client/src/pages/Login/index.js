@@ -10,7 +10,7 @@ class Login extends Component {
   };
 
   handleInput = (e) => this.setState({ [e.target.name]: e.target.value });
-  //formIncomplete = () => Object.values(this.state).some(v => !v)
+  formIncomplete = () => Object.values(this.state).some(v => !v)
 
   login = (e) => {
     e.preventDefault();
@@ -24,18 +24,18 @@ class Login extends Component {
 
         <p> Please log in with your credentials:</p>
         <Form onSubmit={this.login}>
-          <label for="email">Email:</label>
-          <input
+          <Form.Label>Email:</Form.Label>
+          <Form.Control
             id="email"
-            type="text"
+            type="email"
             name="email"
             value={this.state.email}
             onChange={this.handleInput}
             placeholder="your email"
           />
           <br />
-          <label for="password">Password:</label>
-          <input
+          <Form.Label>Password:</Form.Label>
+          <Form.Control
             id="password"
             type="password"
             name="password"
@@ -44,10 +44,7 @@ class Login extends Component {
             placeholder="password"
           />
           <br />
-          {/* <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in</Button>             */}
-          <Button className="genButtons" variant="info" type="submit">
-            Log in
-          </Button>
+          <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in</Button>
         </Form>
         <p id="login"></p>
       </Jumbotron>
