@@ -4,7 +4,7 @@
 ### User:
 - id: uuid 
 - username: string(unique) 
-- email:string
+- email:string(unique)
 - password: string 
 
 
@@ -12,8 +12,7 @@
 - id: uuid
 - name: string
 - updated_date: date
-- frequency: integer
-- due_date: date 
+- week_total: integer 
 - streak: integer
 - user_id: string
 
@@ -23,10 +22,10 @@
 ### Auth
 
 login(username: string, password:string)
-   => User
+   => "msg: user created"
 
 register(username: string, password:string)
-   => User
+   => jwT Token
 
 
 ### Users (Development only)
