@@ -166,7 +166,7 @@ class HabitContainer extends Component {
             ))}
           </Table>
 
-          <TableButtons />
+          <TableButtons  fetchHabits={this.fetchHabits}/>
         </div>
       </>
     );
