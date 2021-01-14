@@ -14,7 +14,7 @@ describe('BackButton', () => {
     })
 
     test('calls history goBack function when clicked', () => {
-        const btn = component.find('button')
+        const btn = component.find('Button')
         btn.simulate('click')
         expect(stubRouterHistory.goBack.mock.calls.length).toBe(1)
     })
