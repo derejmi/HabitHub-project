@@ -18,6 +18,7 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import { TableButtons, NewHabitRow } from "..";
 import jwt_decode from "jwt-decode";
+const moment = require("moment");
 
 class HabitContainer extends Component {
   state = {
@@ -74,6 +75,14 @@ class HabitContainer extends Component {
     }).then(this.fetchHabits);
   };
 
+  updateStreak = (id, date) => {
+    const today = new Date();
+    const lastUpdated = new Date(date);
+
+    console.log(today);
+    console.log(lastUpdated);
+  };
+
   render() {
     return (
       <>
@@ -87,13 +96,25 @@ class HabitContainer extends Component {
             <thead>
               <tr>
                 <th>Habit Name</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-                <th>Sun</th>
+                <th>{moment().format("dddd").slice(0, 3)}</th>
+                <th>
+                  {(moment().add(1, "days").format("dddd") + 1).slice(0, 3)}
+                </th>
+                <th>
+                  {(moment().add(2, "days").format("dddd") + 1).slice(0, 3)}
+                </th>
+                <th>
+                  {(moment().add(3, "days").format("dddd") + 1).slice(0, 3)}
+                </th>
+                <th>
+                  {(moment().add(4, "days").format("dddd") + 1).slice(0, 3)}
+                </th>
+                <th>
+                  {(moment().add(5, "days").format("dddd") + 1).slice(0, 3)}
+                </th>
+                <th>
+                  {(moment().add(6, "days").format("dddd") + 1).slice(0, 3)}
+                </th>
                 <th>Week total</th>
                 <th>Streak total</th>
                 <th>Update Streak</th>
@@ -109,6 +130,7 @@ class HabitContainer extends Component {
                 user={this.state.user}
                 deleteHabits={this.deleteHabits}
                 fetchHabits={this.fetchHabits}
+                updateStreak={this.updateStreak}
               />
             ))}
           </Table>
