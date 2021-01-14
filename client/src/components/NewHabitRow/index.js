@@ -38,14 +38,15 @@ class NewHabitRow extends Component {
           <td>
             <input type="checkbox" onClick={this.freqCounter} />
           </td>
-          <td>Total: {this.state.weekTotal}</td>
-          <td>Streak: {this.props.streak}</td>
+          <td>{this.state.weekTotal}</td>
+          <td> {this.props.streak}</td>
           <td>
             <button
               onClick={() =>
                 this.props.updateStreak(
                   this.props.details.id,
-                  this.props.details.updated_date
+                  this.props.details.updated_date,
+                  this.props.details.streak
                 )
               }
             >

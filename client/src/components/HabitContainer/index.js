@@ -75,9 +75,41 @@ class HabitContainer extends Component {
     }).then(this.fetchHabits);
   };
 
-  updateStreak = (id, date) => {
+  updateHabits = (id, streak) => {
+    console.log("updating");
+
+    const userData = {
+      streak,
+    };
+    fetch(`http://localhost:3000/habits/${id}`, {
+      method: "PATCH",
+      headers: {
+        Authorization: this.state.token,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    }).then(this.fetchHabits);
+  };
+
+  updateStreak = (id, date, streak) => {
+    console.log(id, "id");
     const today = new Date();
     const lastUpdated = new Date(date);
+    const diff = today.getDate() - lastUpdated.getDate();
+    console.log(today, "today");
+    console.log(lastUpdated, "lastUpdated");
+    if (diff > 1) {
+      const streak = 0;
+      this.updateHabits(id, streak);
+    }
+    if (diff === 1) {
+      let updatedStreak = streak + 1;
+      this.updateHabits(id, updatedStreak);
+    }
+
+    // updateHabits = (id, streak) => {};
+
+    console.log(diff);
 
     console.log(today);
     console.log(lastUpdated);
@@ -96,25 +128,13 @@ class HabitContainer extends Component {
             <thead>
               <tr>
                 <th>Habit Name</th>
-                <th>{moment().format("dddd").slice(0, 3)}</th>
-                <th>
-                  {(moment().add(1, "days").format("dddd") + 1).slice(0, 3)}
-                </th>
-                <th>
-                  {(moment().add(2, "days").format("dddd") + 1).slice(0, 3)}
-                </th>
-                <th>
-                  {(moment().add(3, "days").format("dddd") + 1).slice(0, 3)}
-                </th>
-                <th>
-                  {(moment().add(4, "days").format("dddd") + 1).slice(0, 3)}
-                </th>
-                <th>
-                  {(moment().add(5, "days").format("dddd") + 1).slice(0, 3)}
-                </th>
-                <th>
-                  {(moment().add(6, "days").format("dddd") + 1).slice(0, 3)}
-                </th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+                <th>Sun</th>
                 <th>Week total</th>
                 <th>Streak total</th>
                 <th>Update Streak</th>
