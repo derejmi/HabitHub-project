@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/esm/Button";
+import Button from "react-bootstrap/Button";
 
 class NewHabitRow extends Component {
   state = { weekTotal: 0 };

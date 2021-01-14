@@ -1,10 +1,10 @@
-import HabitTrack from '.';
+import HabitTable from '.';
 
-describe('HabitTrack', () => {
+describe('HabitTable', () => {
     let component;
     
     beforeEach( () => {
-        component = shallow(<HabitTrack />);
+        component = shallow(<HabitTable />);
     });
 
     test('it renders', () => {

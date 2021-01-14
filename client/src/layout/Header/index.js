@@ -1,5 +1,4 @@
 import React from 'react';
-//import { BackButton } from '../../components';
 import './style.css'
 
 const Header = () => {
