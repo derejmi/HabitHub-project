@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Jumbotron } from "react-bootstrap";
 import { HabitContainer } from "../../components";
 
 class HabitTrack extends Component {
@@ -8,13 +8,6 @@ class HabitTrack extends Component {
     habitFreq: 0,
   };
 
-  // componentDidMount(){
-  //     const token = localStorage.get("token")
-  //     this.setState{token}
-  //     const user = localStorage.get("user')
-  //     this.setState{user}
-  //     if(user)this.setState{isAuthenticated: true}
-  // }
   freqCounter = (e) => {
     const checked = e.target.checked;
     checked
@@ -22,19 +15,20 @@ class HabitTrack extends Component {
       : this.setState({ habitFreq: this.state.habitFreq - 1 });
   };
 
-  // renderNewRow = e => {
-  //     this.setState({rowList: this.state.rowList.push(<NewHabitRow key={rowList.length}
-  //                                                                  increaseFreqCount={this.freqCounter}
-  //                                                                  weekTotal={this.state.habitFreq}
-  //                                                                  />)});
-  //}
-
-  resetForm = (e) => {
-    this.props.history.push("/");
+  logoutSession = (e) => {
+    localStorage.clear()
+    location.reload()
   };
 
+
   render() {
-    return <HabitContainer />;
+    return (
+          <>  
+              <Button id="logOutBtn" className="genButtons" variant="info" onClick={this.logoutSession} >Log out</Button>
+              <HabitContainer />
+              
+          </>
+        )
   }
 }
 

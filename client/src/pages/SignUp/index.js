@@ -18,8 +18,6 @@ class SignUp extends Component {
     Object.values(this.state).some((v) => !v) ||
     this.state.password !== this.state.password2;
 
-  // formIncompleteResult = this.formIncomplete();
-
   signup = async (e) => {
     e.preventDefault();
     try {

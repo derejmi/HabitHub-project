@@ -110,6 +110,13 @@ video {
 .btn:disabled {
   opacity: 0.5;
 }
+
+#logOutBtn{
+  margin: 0 auto 5vh 5em;
+  float: right;
+  width: auto;
+}
+
 #err {
   color: red;
 }
