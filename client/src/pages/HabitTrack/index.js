@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Button, Form, Jumbotron } from "react-bootstrap";
 import { HabitContainer } from "../../components";
+import {withRouter} from 'react-router-dom'
 
 class HabitTrack extends Component {
   state = {
@@ -16,9 +17,9 @@ class HabitTrack extends Component {
   };
 
   logoutSession = (e) => {
-    // localStorage.clear()
     localStorage.removeItem("jwtToken")
-    location.reload()
+    this.props.history.push('/')
+    
   };
 
 
@@ -33,4 +34,4 @@ class HabitTrack extends Component {
   }
 }
 
-export default HabitTrack;
+export default withRouter(HabitTrack);
