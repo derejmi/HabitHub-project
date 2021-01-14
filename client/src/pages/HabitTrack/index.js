@@ -29,9 +29,11 @@ class HabitTrack extends Component {
   //                                                                  />)});
   //}
 
-//   logoutSession = (e) => {
-//     localStorage.clear()
-//   };
+  logoutSession = (e) => {
+    console.log("localStorage")
+    localStorage.clear()
+    location.reload()
+  };
 
 
   render() {

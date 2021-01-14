@@ -15,7 +15,7 @@
 
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
-import Form from "react-bootstrap/Form";
+//import Form from "react-bootstrap/Form";
 import { TableButtons, NewHabitRow } from "..";
 import jwt_decode from "jwt-decode";
 
@@ -78,9 +78,9 @@ class HabitContainer extends Component {
               />
             ))}
           </Table>
-          <Form>
+          {/* <Form> */}
             <TableButtons renderNewRow={this.props.renderNewRow} />
-          </Form>
+          {/* </Form> */}
         </div>
       </>
     );

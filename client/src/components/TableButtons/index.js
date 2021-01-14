@@ -9,17 +9,19 @@ import Form from 'react-bootstrap/Form'
 class TableButtons extends Component {
    //set new habit
    state = {
-            name:'',
-            frequency:''
+            // name:'',
+            // frequency:''
         }   
         
     
     handleSelectHabit = (event)=>{
         this.setState({name: event.target.value});
+        // console.log(event.target.value)
       }
     
     handleSelectFreq = (event)=>{
         this.setState({frequency: event.target.value});
+        // console.log(event.target.value)
       }
 
     renderNewRaw = () => {
@@ -43,7 +45,7 @@ class TableButtons extends Component {
 
                 <Form.Group controlId="frequency">
                     <Form.Label>Select Frequency</Form.Label>
-                    <Form.Control as="select" custom onChange={this.handleSelectHabit.bind(this)}>
+                    <Form.Control as="select" custom onChange={this.handleSelectFreq.bind(this)}>
                         <option value="Weekly" >Weekly</option>
                         <option value="Daily">Daily</option>
                     </Form.Control>
