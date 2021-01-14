@@ -96,6 +96,7 @@ class App extends Component {
             login={this.login}
             component={Login}
           />
+          
           <LoggedOutRoute
             path="/signup"
             isLoggedIn={this.state.isLoggedIn}

@@ -117,6 +117,16 @@ video {
   width: auto;
 }
 
+#frequency {
+  color:red
+}
+
+.formGroup{
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
 #err {
   color: red;
 }
@@ -126,9 +136,14 @@ video {
 #login {
   color: white;
 }
-
-form {
+/* remove border and set the margin correctly before deploy */
+.habit-table{
+  border: 5px solid #11104f;
+  margin:3em;
+}
+form{
   margin-top: 40px;
+  
 }
 
 footer {
