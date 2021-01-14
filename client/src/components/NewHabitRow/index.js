@@ -40,8 +40,10 @@ class NewHabitRow extends Component {
 
     if (checkboxValues) {
       for (let checkboxId in checkboxValues) {
-        document.getElementById(checkboxId).checked =
-          checkboxValues[checkboxId];
+        if (document.getElementById(checkboxId)) {
+          document.getElementById(checkboxId).checked =
+            checkboxValues[checkboxId];
+        }
       }
     }
   }
@@ -54,49 +56,49 @@ class NewHabitRow extends Component {
           <td>
             <input
               type="checkbox"
-              id={`${this.props.habitName}Mon`}
+              id={`${this.props.habitName}${this.props.details.id}Mon`}
               onClick={this.freqCounter}
             />
           </td>
           <td>
             <input
               type="checkbox"
-              id={`${this.props.habitName}Tues`}
+              id={`${this.props.habitName}${this.props.details.id}Tues`}
               onClick={this.freqCounter}
             />
           </td>
           <td>
             <input
               type="checkbox"
-              id={`${this.props.habitName}Wed`}
+              id={`${this.props.habitName}${this.props.details.id}Wed`}
               onClick={this.freqCounter}
             />
           </td>
           <td>
             <input
               type="checkbox"
-              id={`${this.props.habitName}Thurs`}
+              id={`${this.props.habitName}${this.props.details.id}Thurs`}
               onClick={this.freqCounter}
             />
           </td>
           <td>
             <input
               type="checkbox"
-              id={`${this.props.habitName}Fri`}
+              id={`${this.props.habitName}${this.props.details.id}Fri`}
               onClick={this.freqCounter}
             />
           </td>
           <td>
             <input
               type="checkbox"
-              id={`${this.props.habitName}Sat`}
+              id={`${this.props.habitName}${this.props.details.id}Sat`}
               onClick={this.freqCounter}
             />
           </td>
           <td>
             <input
               type="checkbox"
-              id={`${this.props.habitName}Sun`}
+              id={`${this.props.habitName}${this.props.details.id}Sun`}
               onClick={this.freqCounter}
             />
           </td>
