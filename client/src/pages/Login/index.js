@@ -20,12 +20,13 @@ class Login extends Component {
   render() {
     return (
       <Jumbotron>
-        <h1 className="titleHabitHub">Welcome back to HabitHub</h1>
+        
+        <h1 className="titleHabitHub"> <span id="login"></span> Welcome back to HabitHub</h1>
 
         <p> Please log in with your credentials:</p>
         <Form onSubmit={this.login}>
-          <label for="email">Email:</label>
-          <input
+          <Form.Label>Email:</Form.Label>
+          <Form.Control
             id="email"
             type="text"
             name="email"
@@ -34,8 +35,8 @@ class Login extends Component {
             placeholder="your email"
           />
           <br />
-          <label for="password">Password:</label>
-          <input
+          <Form.Label >Password:</Form.Label>
+          <Form.Control
             id="password"
             type="password"
             name="password"
@@ -45,22 +46,9 @@ class Login extends Component {
           />
           <br />
           {/* <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in</Button>             */}
-          <Button className="genButtons" variant="info" type="submit">
-            Log in
-          </Button>
-        </Form>
-        <p id="login"></p>
-          <h1 className="titleHabitHub">Welcome back to HabitHub</h1>
-          
-          <p> Please log in with your credentials:</p>
-          <Form onSubmit={this.login}>
-             <Form.Label>Email:</Form.Label>
-             <Form.Control id="email"  type="text" name="email" value={this.state.email} onChange={this.handleInput} placeholder="your email" /><br/>
-              <Form.Label>Password:</Form.Label>
-              <Form.Control id="password" type="password" name="password" value={this.state.password} onChange={this.handleInput} placeholder="password"/><br/>
-          <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in</Button>
-          </Form>
-             
+            <Button className="genButtons" variant="info" type="submit"> Log in</Button>
+            <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in disabled</Button>
+          </Form> 
       </Jumbotron>
     );
   }

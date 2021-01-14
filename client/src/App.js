@@ -69,6 +69,7 @@ class App extends Component {
       console.log(token, "token");
       localStorage.setItem("jwtToken", token);
       const user = jwt_decode(token);
+      //will be better to decoder when the user info are required
       console.log(user);
       localStorage.setItem("user", user);
 

@@ -18,49 +18,13 @@ class TableButtons extends Component {
         this.setState({name: event.target.value});
       }
     
-      handleSelectFreq = (event)=>{
+    handleSelectFreq = (event)=>{
         this.setState({frequency: event.target.value});
       }
 
-
-    render() {
-        return (
-            <>
-                <div className="table-buttons habit-table">
-                        <DropdownButton variant="light" title="" onSelect={this.handleSelectHabit}>
-                            <Dropdown.Item eventKey="Exercise">Exercise</Dropdown.Item>
-                            <Dropdown.Item eventKey="Balanced nutrition" >Balanced nutrition</Dropdown.Item>
-                            <Dropdown.Item eventKey="Mindfulness" >Mindfulness</Dropdown.Item>
-                            <Dropdown.Item eventKey="Smoking">Smoking</Dropdown.Item>
-                            <Dropdown.Item eventKey="Drinking">Drinking</Dropdown.Item>
-                        </DropdownButton>
-
-                        
-                        <DropdownButton variant="light" title="Choose tracking frequency"onSelect={this.handleSelectFreq}>
-                            <Dropdown.Item eventKey="Weekly">Weekly</Dropdown.Item>
-                        </DropdownButton>
-                        <Button className="genButtons" variant="info" onClick={this.props.renderNewRow}>Add new habit</Button>{' '}
-                </div>
-      renderNewRaw = () => {
+    renderNewRaw = () => {
         console.log('I have been clicked ' + 'name: ' + this.state.name + 'frequency: ' + this.state.frequency);
-    }
-
-
-    <tbody>
-                        <tr>
-                            <td>Exercise</td>
-                            <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td><input type="checkbox" onClick={this.props.increaseFreqCount}/></td>
-                            <td>Total: {this.props.weekTotal}</td>
-                        </tr>                 
-                </tbody>
-
-
+        }
 
     render() {
         return (

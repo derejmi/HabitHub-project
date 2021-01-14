@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import { HabitContainer } from "../../components";
 
 class HabitTrack extends Component {
@@ -29,12 +29,18 @@ class HabitTrack extends Component {
   //                                                                  />)});
   //}
 
-  resetForm = (e) => {
-    this.props.history.push("/");
-  };
+//   logoutSession = (e) => {
+//     localStorage.clear()
+//   };
+
 
   render() {
-    return <HabitContainer />;
+    return (
+        <>
+            <HabitContainer />
+            <Button onClick={this.logoutSession} >Log out</Button>
+        </>
+            );
   }
 }
 
