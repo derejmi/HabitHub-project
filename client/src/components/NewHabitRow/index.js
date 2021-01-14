@@ -12,6 +12,40 @@ class NewHabitRow extends Component {
       : this.setState({ weekTotal: this.state.weekTotal - 1 });
   };
 
+  componentDidMount() {
+    // setCheckboxes = () => {
+
+    let checkboxValues =
+      JSON.parse(localStorage.getItem("checkboxValues")) || {};
+    const checkboxes = document.querySelectorAll("input[type=checkbox]");
+    console.log(checkboxes);
+
+    for (let i = 0; i < checkboxes.length; i++) {
+      let currentCheckbox = checkboxes[i];
+      currentCheckbox.addEventListener("change", (event) => {
+        console.log(event);
+        const id = event.target.id;
+        const isChecked = event.target.checked;
+        console.log(id, "id");
+        console.log(isChecked, "isChecked");
+        checkboxValues[id] = isChecked;
+
+        console.log(checkboxValues, "checkboxValues");
+        const stringify = JSON.stringify(checkboxValues);
+        console.log(stringify, "stringify");
+
+        localStorage.setItem("checkboxValues", stringify);
+      });
+    }
+
+    if (checkboxValues) {
+      for (let checkboxId in checkboxValues) {
+        document.getElementById(checkboxId).checked =
+          checkboxValues[checkboxId];
+      }
+    }
+  }
+
   render() {
     return (
       <tbody>
