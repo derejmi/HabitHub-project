@@ -106,13 +106,6 @@ class HabitContainer extends Component {
       let updatedStreak = streak + 1;
       this.updateHabits(id, updatedStreak);
     }
-
-    // updateHabits = (id, streak) => {};
-
-    console.log(diff);
-
-    console.log(today);
-    console.log(lastUpdated);
   };
 
   render() {
@@ -154,9 +147,8 @@ class HabitContainer extends Component {
               />
             ))}
           </Table>
-          <Form>
-            <TableButtons renderNewRow={this.props.renderNewRow} />
-          </Form>
+
+          <TableButtons />
         </div>
       </>
     );
