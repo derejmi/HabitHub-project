@@ -18,6 +18,7 @@ class NewHabitRow extends Component {
         <tr>
           <td>{this.props.habitName}</td>
           <td>
+<<<<<<< HEAD
             <input
               type="checkbox"
               id={`${this.props.habitName}Mon`}
@@ -65,6 +66,27 @@ class NewHabitRow extends Component {
               id={`${this.props.habitName}Sun`}
               onClick={this.freqCounter}
             />
+=======
+            <input type="checkbox" onClick={this.freqCounter} />
+          </td>
+          <td>
+            <input type="checkbox" onClick={this.freqCounter} />
+          </td>
+          <td>
+            <input type="checkbox" onClick={this.freqCounter} />
+          </td>
+          <td>
+            <input type="checkbox" onClick={this.freqCounter} />
+          </td>
+          <td>
+            <input type="checkbox" onClick={this.freqCounter} />
+          </td>
+          <td>
+            <input type="checkbox" onClick={this.freqCounter} />
+          </td>
+          <td>
+            <input type="checkbox" onClick={this.freqCounter} />
+>>>>>>> 12fcf427385099ec7b86cd7262df33f9c4a6f82d
           </td>
           <td>{this.state.weekTotal}</td>
           <td> {this.props.streak}</td>
