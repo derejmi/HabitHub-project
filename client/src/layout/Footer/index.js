@@ -1,10 +1,8 @@
-import React from 'react';
-import './style.css';
+import React from "react";
+import "./style.css";
 
 const Footer = () => {
-    return (
-        <span id="footer"> Crated by Habitbub Team | &copy; futureproof 2020</span>
-    );
-}
+  return <p id="footer"> Crated by Habitbub Team | &copy; futureproof 2020</p>;
+};
 
 export default Footer;
