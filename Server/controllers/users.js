@@ -11,7 +11,7 @@ const validateLogin = require("../validation_helpers/login");
 router.get("/", async (req, res) => {
   try {
     const users = await User.all;
-    res.json(users);
+    res.status(200).json(users);
   } catch (err) {
     res.status(400).send({ err });
   }
