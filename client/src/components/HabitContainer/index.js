@@ -75,11 +75,13 @@ class HabitContainer extends Component {
     }).then(this.fetchHabits);
   };
 
-  updateHabits = (id, streak) => {
+  updateHabits = (id, streak, week_total) => {
     console.log("updating");
 
     const userData = {
       streak,
+      week_total,
+      updated_date: new Date(),
     };
     fetch(`http://localhost:3000/habits/${id}`, {
       method: "PATCH",
@@ -91,7 +93,7 @@ class HabitContainer extends Component {
     }).then(this.fetchHabits);
   };
 
-  updateStreak = (id, date, streak) => {
+  updateStreak = (id, date, streak, week_total) => {
     console.log(id, "id");
     const today = new Date();
     const lastUpdated = new Date(date);
@@ -100,13 +102,29 @@ class HabitContainer extends Component {
     console.log(lastUpdated, "lastUpdated");
     if (diff > 1) {
       const streak = 0;
-      this.updateHabits(id, streak);
+      this.updateHabits(id, streak, week_total);
     }
     if (diff === 1) {
       let updatedStreak = streak + 1;
-      this.updateHabits(id, updatedStreak);
+      this.updateHabits(id, updatedStreak, week_total);
     }
   };
+
+  // componentDidUpdate{
+  //    fetch("http://localhost:3000/habits", {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: this.state.token,
+  //     },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       this.setState({ habits: json });
+  //     })
+  //     .catch((err) => {
+  //       console.warn(`Sorry but...${err}`);
+  //     });
+  // };
 
   render() {
     return (
@@ -137,9 +155,9 @@ class HabitContainer extends Component {
             {this.state.habits.map((habit, idx) => (
               <NewHabitRow
                 key={idx}
-                habitName={this.state.habits[idx].name}
-                streak={this.state.habits[idx].streak}
-                details={this.state.habits[idx]}
+                habitName={habit.name}
+                streak={habit.streak}
+                details={habit}
                 user={this.state.user}
                 deleteHabits={this.deleteHabits}
                 fetchHabits={this.fetchHabits}
