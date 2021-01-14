@@ -16,7 +16,8 @@ class HabitTrack extends Component {
   };
 
   logoutSession = (e) => {
-    localStorage.clear()
+    // localStorage.clear()
+    localStorage.removeItem("jwtToken")
     location.reload()
   };
 
