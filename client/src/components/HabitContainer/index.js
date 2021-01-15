@@ -103,7 +103,7 @@ class HabitContainer extends Component {
       const streak = 1;
       this.updateHabits(id, streak, week_total);
     }
-    if (diff === 1) {
+    if (diff <= 1) {
       let updatedStreak = streak + 1;
       this.updateHabits(id, updatedStreak, week_total);
     }
