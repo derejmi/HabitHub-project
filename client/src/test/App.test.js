@@ -30,4 +30,41 @@ describe('App', () => {
         expect(privateRouter).toHaveLength(1);
         expect(loggedOutRoute).toHaveLength(2);
     });
+
+    test('it has a state', () => {
+        const instance = component.instance()
+        expect(instance['state']).toEqual({
+            isLoggedIn: false,
+        
+            currentUser: {
+              id: 0,
+              username: " ",
+              email: " ",
+              password: " ",
+            },
+        
+            habitContainer: [
+              {
+                habit1: {
+                  id: 0,
+                  name: " ",
+                  updatedDate: "date",
+                  frequency: 0,
+                  dueDate: " ",
+                  streak: 0,
+                  userId: " ",
+                },
+        
+                habit2: {
+                  id: 0,
+                  name: " ",
+                  updatedDate: "date",
+                  frequency: 0,
+                  dueDate: " ",
+                  streak: 0,
+                  userId: " ",
+                },
+              },
+            ]})
+    });
 });

@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import PrivateRoute from '.';
-import PrivateRoute from '.';
 
 describe('LoggedIn', () => {
     let component;

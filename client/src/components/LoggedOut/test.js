@@ -12,9 +12,14 @@ describe('LoggedOut', () => {
         expect(component).toExist;
     });
 
-    // test('the redirect has the correct path', () => {
-    //     const path = component.find('Redirect');
-    //     console.log(path)
-    //     expect(path.prop('to')).toEqual('/habitTrack');
-    // });
+    test('it has a route', () => {
+        expect(component.find('Route')).toHaveLength(1);
+    });
+
+    test('the redirect has the correct path', () => {
+        let path = component.find('Redirect');        
+        expect(path).toHaveLength(0);
+    });
+
+
 });

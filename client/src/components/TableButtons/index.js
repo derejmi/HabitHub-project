@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form"
 
 class TableButtons extends Component {
@@ -68,7 +67,7 @@ class TableButtons extends Component {
          <Form className="table-buttons habit-table" onSubmit={this.sendRowData}>
                 <Form.Group controlId="habit" className="formGroup">
                     <Form.Label>Select Habit:</Form.Label>
-                    <Form.Control as="select" custom onChange={this.handleSelectHabit.bind(this)}>
+                    <Form.Control as="select" custom onChange={this.handleSelectHabit}>                     
                         <option value="Exercise" >Exercise</option>
                         <option value="Balanced nutrition">Balanced nutrition</option>
                         <option value="Mindfulness">Mindfulness</option>
@@ -79,7 +78,7 @@ class TableButtons extends Component {
 
                 <Form.Group controlId="frequency" className="formGroup">
                     <Form.Label> and Frequency:</Form.Label>
-                    <Form.Control as="select" custom onChange={this.handleSelectFreq.bind(this)}>
+                    <Form.Control as="select" custom onChange={this.handleSelectFreq}>                   
                         <option value="Weekly" >Weekly</option>
                         <option value="Daily" >Daily</option>
                     </Form.Control>
