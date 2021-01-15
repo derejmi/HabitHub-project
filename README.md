@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/Licence-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-Insert Screen record here
+![](client/public/HabitHub.gif)
 
 HabitHub is a platform where users can sign up, create a table with different habits and track the frequency and streak of their habits.
 
