@@ -55,17 +55,6 @@ router.post(
     }
   }
 );
-
-// router.patch('/:id', async (res, rej) => {
-//   try{
-//     const habit = await Habit.findBy(parseInt(req.params.id));
-//     const updateHabit = await habit.updateName(req.body.name, req.body.updated_date, req.body.frequency, req.body.due_date)
-//     res.json({habit: updateHabit})
-//   } catch (err) {
-//     rej.status(404).json({err})
-
-//   }
-// })
 router.patch(
   "/:id",
   passport.authenticate("jwt", { session: false }),
@@ -85,24 +74,6 @@ router.patch(
     }
   }
 );
-
-// router.delete('/:id',
-// passport.authenticate("jwt", { session: false }),
-
-// async (req, res) => {
-//   try {
-
-//     rid = parseInt(req.params.id)
-//     uid = req.user.id
-//     // const delHab = await Habit.findBy(
-//     const del = await Habit.destroy(rid, uid)
-
-//     res.status(204).json()
-
-//   } catch(err) {
-//     res.status(500).json({err})
-//   }
-// })
 router.delete(
   "/:id",
   passport.authenticate("jwt", { session: false }),

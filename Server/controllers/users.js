@@ -22,7 +22,7 @@ router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),
   (req, res) => {
-    console.log("reaching current");
+    // console.log("reaching current");
     res.json({
       id: req.user.id,
       username: req.user.username,
@@ -62,7 +62,7 @@ router.post("/register", async (req, res) => {
 
 router.post("/login", async (req, res) => {
   try {
-    console.log(req.body, "login");
+    // console.log(req.body, "login");
     const { errors, isValid } = validateLogin(req.body);
     console.log(errors);
     if (!isValid) {
