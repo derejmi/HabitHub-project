@@ -117,7 +117,7 @@ Inserted a background video on the welcome page. | Achieving a high coverage wit
 
 * A more visually-appealing styling.
 * Responsive design for mobile users.
-* Having mutiple options for the habit frequency.
+* Having multiple options for the habit frequency.
 * Sorting the habits based on streak or frequency.
 * Adapting the CSS for all different browsers.
 * Adding a badge to the repo.
