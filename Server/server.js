@@ -19,7 +19,7 @@ const passport = require("passport");
 server.use(passport.initialize());
 require("./config/passport")(passport);
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 server.use("/users", userRoutes);
 server.use("/habits", habitRoutes);
@@ -31,3 +31,5 @@ server.listen(port, () =>
 server.get("/", (req, res) => {
   res.status(200).json({ msg: "Welcome to Habit Hub" });
 });
+
+module.exports = server 
