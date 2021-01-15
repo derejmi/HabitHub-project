@@ -123,8 +123,10 @@ video {
 
 .formGroup{
   display: flex;
-  justify-content: flex-end;
-  
+  justify-content: space-evenly;
+}
+.form-label{
+  width: auto;
 }
 
 #err {

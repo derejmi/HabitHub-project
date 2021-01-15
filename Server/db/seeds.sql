@@ -9,7 +9,9 @@ CREATE TABLE users(
 
 INSERT INTO users (username,email,password)
 VALUES
-    ('billy1999','billly19998@gmail.com','$2a$10$v5feHH7KyYaneZW.hMdjMe9bG.nq.Ih1I/eZJIQM0vtFiYCsmtxVS');
+    ('billy1999','billly19998@gmail.com','$2a$10$v5feHH7KyYaneZW.hMdjMe9bG.nq.Ih1I/eZJIQM0vtFiYCsmtxVS'),
+    -- dev-purpouse-password:1234
+    ('Pinko','ee@gmail.com','$2a$10$BXl3XSHkKAkLB61o10OgwOhbL8GBP1Kt16vvibcOONvFdFIFdLree');
 
 
 
@@ -29,7 +31,9 @@ CREATE TABLE habits(
 INSERT INTO habits (name, updated_date,week_total,streak,users_id)
 VALUES
 
-    ('Gym','2021-01-13',0,0,1);
+    ('Gym','2021-01-13',0,0,1),
+    ('Mindfulness','2021-01-11',3,3,2),
+    ('Smoking','2021-01-12',2,2,2);
 
 
 
