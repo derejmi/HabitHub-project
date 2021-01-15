@@ -1,10 +1,11 @@
 import Login from '.';
 
 describe('Login', () => {
-    let component, instance;
+    let component, loginMock;
 
     beforeEach(() => {
-        component = shallow(<Login />);
+        loginMock = jest.fn();
+        component = shallow(<Login login={loginMock}/>);
     });
 
     test('it renders', () => {
@@ -16,5 +17,13 @@ describe('Login', () => {
         const form = component.find('Form');
         expect(jumbotron).toExist;
         expect(form).toExist;
+    });
+
+    test('check login', () => {
+        const form = component.find('Form');
+        const fakeEvent = { preventDefault: () => "do nothing" };
+        form.simulate("submit", fakeEvent);        
+        loginMock();
+        expect(loginMock).toHaveBeenCalled();
     });
 });

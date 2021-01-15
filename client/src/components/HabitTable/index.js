@@ -36,7 +36,7 @@ class HabitTable extends Component {
                 <th>Week total</th>
               </tr>
             </thead>
-            {/* {this.props.rowList.map((row, index) => row)} */}
+            {this.props.rowList.map((row, index) => row)}
           </Table>
         </div>
       </>

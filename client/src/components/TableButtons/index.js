@@ -27,7 +27,7 @@ class TableButtons extends Component {
         <div className="table-buttons habit-table">
           <DropdownButton
             variant="light"
-            title=""
+            title="Select Habit"
             onSelect={this.handleSelectHabit}
           >
             <Dropdown.Item eventKey="Exercise">Exercise</Dropdown.Item>

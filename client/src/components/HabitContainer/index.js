@@ -18,7 +18,6 @@ import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import { TableButtons, NewHabitRow } from "..";
 import jwt_decode from "jwt-decode";
-const moment = require("moment");
 
 class HabitContainer extends Component {
   state = {
@@ -109,22 +108,6 @@ class HabitContainer extends Component {
       this.updateHabits(id, updatedStreak, week_total);
     }
   };
-
-  // componentDidUpdate{
-  //    fetch("http://localhost:3000/habits", {
-  //     method: "GET",
-  //     headers: {
-  //       Authorization: this.state.token,
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       this.setState({ habits: json });
-  //     })
-  //     .catch((err) => {
-  //       console.warn(`Sorry but...${err}`);
-  //     });
-  // };
 
   render() {
     return (
