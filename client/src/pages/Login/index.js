@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import BackButton from "../../components/BackButton"
+import { withRouter } from 'react-router-dom';
 
 class Login extends Component {
   state = {
@@ -19,37 +21,39 @@ class Login extends Component {
 
   render() {
     return (
-      <Jumbotron>
-        <h1 className="titleHabitHub">Welcome back to HabitHub</h1>
-
-        <p> Please log in with your credentials:</p>
-        <Form onSubmit={this.login}>
-          <Form.Label>Email:</Form.Label>
-          <Form.Control
-            id="email"
-            type="email"
-            name="email"
-            value={this.state.email}
-            onChange={this.handleInput}
-            placeholder="your email"
-          />
-          <br />
-          <Form.Label>Password:</Form.Label>
-          <Form.Control
-            id="password"
-            type="password"
-            name="password"
-            value={this.state.password}
-            onChange={this.handleInput}
-            placeholder="password"
-          />
-          <br />
-          <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in</Button>
-        </Form>
-        <p id="login"></p>
+      <Jumbotron> 
+        <BackButton />
+          <h1 className="titleHabitHub">Welcome back to HabitHub</h1>
+          <div className="formContainer">  
+            <p> Please log in with your credentials:</p>
+            <Form onSubmit={this.login}>
+              <Form.Label>Email:</Form.Label>
+              <Form.Control
+                id="email"
+                type="email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleInput}
+                placeholder="your email"
+              />
+              <br />
+              <Form.Label>Password:</Form.Label>
+              <Form.Control
+                id="password"
+                type="password"
+                name="password"
+                value={this.state.password}
+                onChange={this.handleInput}
+                placeholder="password"
+              />
+              <br />
+              <Button className="genButtons" variant="info" type="submit" className={this.formIncomplete() ? 'disabled' : 'enabled'} disabled={this.formIncomplete()}>Log in</Button>
+            </Form>
+          </div> 
+            <p id="login"></p>  
       </Jumbotron>
     );
   }
 }
 
-export default Login;
+export default withRouter(Login);

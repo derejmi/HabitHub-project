@@ -1,5 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Montserrat&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two:ital@1&display=swap");
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body{
+  font-size: clamp(1rem, 2.5vw, 1.5rem); 
+  overflow-x: hidden;
+}
+
+nav, footer{
+  font-size: clamp(0.5rem, 2.5vw, 1rem); 
+}
+
 :root {
   --titlefont: "Cinzel", serif;
   --textfont: "Montserrat", sans-serif;
@@ -17,53 +31,90 @@
 
 .jumbotron {
   background-color: var(--mainbackground);
-  height: 45%;
-  padding: 0rem 2rem;
+  padding: 0rem;
   z-index: 3;
   margin-bottom: 0;
   border-radius: 0;
 }
-
+/* extra classes for jumbotron */
+.formContainer{
+  margin: 0 10em;
+}
 video {
   padding: 0;
   margin: 0;
   border-radius: 0;
 }
 
+#back-button{
+right: 3em;
+width: 60px;
+top: 30px;
+position: absolute;
+}
 .welcomeVideo {
-  opacity: 0.8;
   object-fit: fill;
   border-radius: 50px;
   padding: 2em;
   opacity: 0.6;
-  z-index: -1;
+  z-index: -2;
+  width: 900px;
+  height: 540px;
+  margin: auto;
+
 }
-video {
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
+.welcomeLogo{
+  opacity: 0.8;
+  width: 900px;
+  height: 540px;
+  margin: auto;
+  position: absolute;
+  object-fit: fill;
+  padding: 2em;
+  border-radius: 50px;
+
 }
 
-@media (min-aspect-ratio: 16/9) {
-  .welcomeVideo {
-    width: 100%;
-    height: 10%;
-  }
+.mediaContentContainer{
+  width: fit-content;
+  margin: auto;
 }
 
-@media (max-aspect-ratio: 16/9) {
-  .welcomeVideo {
-    width: auto;
-    height: 75%;
-  }
+h1{
+  text-align: center;
 }
-@media (max-width: 767px) {
-  .welcomeVideo {
+
+@media screen and (max-width: 480px){
+  .welcomeVideo, .welcomeLogo{
     display: none;
   }
+
   .jumbotron {
     background-image: url("./pages/Welcome/underwater.png");
     background-size: cover;
+    height: 50vh;
+  }
+}
+
+@media screen and (max-width: 480px){
+  .welcomeLogo{
+    width: 40%;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+  .welcomeVideo, .welcomeLogo{
+    width: 80%;
+    
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .welcomeVideo, .welcomeLogo{
+    width: 100%;
+    
   }
 }
 .quotationContainer {
@@ -75,20 +126,26 @@ video {
 .motivationalQuote {
   font-family: var(--motivationalSentencefont);
   color: var(--fontColor);
+  font-size: clamp(1rem, 2.5vw, 2rem);
+  margin:0;
+  padding:0;
+
 }
-/* removing bootstrap css */
+/* remove bootstrap css */
 .navbar {
   background-color: var(--mainbackground);
-  position: relative;
-  justify-content: flex-end;
+  position: absolute;
   padding: 0;
   margin: 0;
+  right:0;
+  top:25px;
+
 }
 
-.table-buttons {
+/* .table-buttons {
   display: flex;
   justify-content: space-between;
-}
+} */
 
 /* general rule for all buttons */
 .genButtons {
@@ -96,6 +153,7 @@ video {
   border-radius: 10px;
   color: #11104f;
   border: none;
+  margin: 0.5em;
 }
 
 .btn-info:hover {
@@ -105,6 +163,7 @@ video {
 .btn-info.disabled {
   background-color: var(--buttonBackround);
   border: none;
+  margin: 2em 0;
 }
 
 .btn:disabled {
@@ -113,18 +172,31 @@ video {
 
 #logOutBtn{
   margin: 0 auto 5vh 5em;
-  float: right;
   width: auto;
+  position: absolute;
+  right: 2em;
+  top: 50px;
 }
 
-#frequency {
-  color:red
+#quitbtn{
+width: 60px;
+right: 2em;
+top: 50px;
+position: absolute;
 }
 
-.formGroup{
+.table-bordered{
+  border: none;
+}
+
+.habit-table{
+  text-align: center;
+}
+
+/* .formGroup{
   display: flex;
   justify-content: space-evenly;
-}
+} */
 .form-label{
   width: auto;
 }
@@ -140,14 +212,15 @@ video {
 }
 /* remove border and set the margin correctly before deploy */
 .habit-table{
-  border: 5px solid #11104f;
   margin:3em;
 }
+
+
 form{
   margin-top: 40px;
-  
 }
 
-footer {
+#footer {
   margin-top: 50px;
+  font-size: 1rem;
 }

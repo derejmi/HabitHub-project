@@ -28,7 +28,8 @@ class TableButtons extends Component {
                 const newHabitData = {
                   name: this.state.name,
                   updated_date: new Date(),
-                  streak: 0
+                  streak: 0,
+                  week_total: 0
                 };
 
             const options = {
@@ -68,7 +69,6 @@ class TableButtons extends Component {
                 <Form.Group controlId="habit" className="formGroup">
                     <Form.Label>Select Habit:</Form.Label>
                     <Form.Control as="select" custom onChange={this.handleSelectHabit.bind(this)}>
-                      {/* onChange={this.handleSelectHabit.bind(this)} */}
                         <option value="Exercise" >Exercise</option>
                         <option value="Balanced nutrition">Balanced nutrition</option>
                         <option value="Mindfulness">Mindfulness</option>
@@ -80,7 +80,6 @@ class TableButtons extends Component {
                 <Form.Group controlId="frequency" className="formGroup">
                     <Form.Label> and Frequency:</Form.Label>
                     <Form.Control as="select" custom onChange={this.handleSelectFreq.bind(this)}>
-                   {/* onChange={this.handleSelectFreq.bind(this)}> */}
                         <option value="Weekly" >Weekly</option>
                         <option value="Daily" >Daily</option>
                     </Form.Control>

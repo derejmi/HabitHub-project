@@ -101,7 +101,7 @@ class HabitContainer extends Component {
     console.log(today, "today");
     console.log(lastUpdated, "lastUpdated");
     if (diff > 1) {
-      const streak = 0;
+      const streak = 1;
       this.updateHabits(id, streak, week_total);
     }
     if (diff === 1) {
@@ -135,7 +135,7 @@ class HabitContainer extends Component {
           </p>
           <p>Please set the habits you want to track from the table below</p>
           <h3>Habit tracking table</h3>
-          <Table striped bordered hover>
+          <Table striped bordered hover size="sm" responsive="sm" className="table-responsive table table-sm">
             <thead>
               <tr>
                 <th>Habit Name</th>
