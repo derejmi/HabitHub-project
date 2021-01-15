@@ -27,7 +27,8 @@ class TableButtons extends Component {
                 const newHabitData = {
                   name: this.state.name,
                   updated_date: new Date(),
-                  streak: 0
+                  streak: 0,
+                  week_total: 0
                 };
 
             const options = {

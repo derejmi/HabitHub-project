@@ -68,7 +68,7 @@ class SignUp extends Component {
     return (
       <Jumbotron>
         <h1 className="titleHabitHub">Welcome to HabitHub</h1>
-
+      <div className="formContainer">
         <p> Create a new user:</p>
         <Form onSubmit={this.signup}>
           <Form.Label>Username:</Form.Label>
@@ -123,9 +123,10 @@ class SignUp extends Component {
             Submit details
           </Button>
         </Form>
-        <Button className="genButtons" variant="info" onClick={this.resetForm}>
+        <Button id="quitbtn" className="genButtons" variant="info" onClick={this.resetForm}>
           Quit
         </Button>
+      </div>
         <p id="err"></p>
         <p id="success"></p>
       </Jumbotron>

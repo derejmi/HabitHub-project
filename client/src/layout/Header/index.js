@@ -1,11 +1,12 @@
 import React from 'react';
+import logo from './logo300.png'
 import './style.css'
 
 const Header = () => {
     return (
-        <>
-            <p className="header">Provisional Header</p>
-        </>      
+        <header>
+            <img src={logo} className="logo"/>
+        </header>      
     );
 }
 
