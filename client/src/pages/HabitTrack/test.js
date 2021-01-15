@@ -5,7 +5,7 @@ describe('HabitTrack', () => {
     
     beforeEach( () => {
         logOutMock = jest.fn();
-        component = shallow(<HabitTrack />);
+        component = shallow(<HabitTrack.WrappedComponent history={[]}/>);
     });
 
     test('it renders', () => {

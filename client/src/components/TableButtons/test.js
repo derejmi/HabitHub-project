@@ -1,5 +1,6 @@
 import TableButtons from '.';
-import Dropdown from 'react-bootstrap/Dropdown';
+import Form from 'react-bootstrap/Form';
+import 'regenerator-runtime/runtime';
 
 
 describe('TableButtons', () => {
@@ -7,35 +8,35 @@ describe('TableButtons', () => {
     
     beforeEach( () => {
         renderMock = jest.fn();
-        component = shallow(<TableButtons renderNewRow={renderMock}/>);
+        component = shallow(<TableButtons fetchHabits={renderMock}/>);
     });
 
     test('it renders', () => {
         expect(component).toExist;
     });
 
-    test('DropdownButton has nested DropdownButton Items and a button', () => {
-        let mainDropdownButton = component.find('DropdownButton');
-        let DropdownButtonItems = component.find(Dropdown.Item);
-        let renderButton = component.find('Button');
-        expect(mainDropdownButton.length).toBe(2);
+    test('Form has nested Form Items and a button', () => {
+        let mainForm = component.find('Form');
+        let FormControls = component.find(Form.Control);
+        let renderButton = component.find('input');
+        expect(mainForm.length).toBe(1);
         expect(renderButton.length).toBe(1);
-        expect(DropdownButtonItems.length).toBe(6);
+        expect(FormControls.length).toBe(2);
     });
 
-    test('check button click', () => {
-        const button = component.find('Button').first();
+    test('check Form submit', () => {
+        const button = component.find('Form');
         const fakeEvent = { preventDefault: ()=> 'do nothing', target: {}};
-        button.simulate('click', fakeEvent);
+        button.simulate('submit', fakeEvent);
         renderMock();
         expect(renderMock).toHaveBeenCalled();
     });
 
     test('handleSelectHabit & handleSelectFreq set state name & frequency', () => {
-        const dropdown1 = component.find('DropdownButton').at(0);
-        const dropdown2 = component.find('DropdownButton').at(1);        
-        dropdown1.simulate("select", 'Smoking');
-        dropdown2.simulate("select", 'Weekly');
+        const FormControl1 = component.find(Form.Control).at(0);
+        const FormControl2 = component.find(Form.Control).at(1);        
+        FormControl1.simulate("change", 'Smoking');
+        FormControl2.simulate("change", 'Weekly');
         expect(component.state('name')).toBe('Smoking');
         expect(component.state('frequency')).toBe('Weekly');
     });

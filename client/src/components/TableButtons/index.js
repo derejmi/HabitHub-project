@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form"
 
 class TableButtons extends Component {
@@ -64,42 +63,10 @@ class TableButtons extends Component {
   render() {
     return (
       <>
-<<<<<<< HEAD
-        <div className="table-buttons habit-table">
-          <DropdownButton
-            variant="light"
-            title="Select Habit"
-            onSelect={this.handleSelectHabit}
-          >
-            <Dropdown.Item eventKey="Exercise">Exercise</Dropdown.Item>
-            <Dropdown.Item eventKey="Balanced nutrition">
-              Balanced nutrition
-            </Dropdown.Item>
-            <Dropdown.Item eventKey="Mindfulness">Mindfulness</Dropdown.Item>
-            <Dropdown.Item eventKey="Smoking">Smoking</Dropdown.Item>
-            <Dropdown.Item eventKey="Drinking">Drinking</Dropdown.Item>
-          </DropdownButton>
-          <DropdownButton
-            variant="light"
-            title="Choose tracking frequency"
-            onSelect={this.handleSelectFreq}
-          >
-            <Dropdown.Item eventKey="Weekly">Weekly</Dropdown.Item>
-          </DropdownButton>
-          <Button
-            className="genButtons"
-            variant="info"
-            onClick={this.props.renderNewRow}
-          >
-            Add new habit
-          </Button>{" "}
-        </div>
-=======
          <Form className="table-buttons habit-table" onSubmit={this.sendRowData}>
                 <Form.Group controlId="habit" className="formGroup">
                     <Form.Label>Select Habit:</Form.Label>
-                    <Form.Control as="select" custom onChange={this.handleSelectHabit.bind(this)}>
-                      {/* onChange={this.handleSelectHabit.bind(this)} */}
+                    <Form.Control as="select" custom onChange={this.handleSelectHabit}>                     
                         <option value="Exercise" >Exercise</option>
                         <option value="Balanced nutrition">Balanced nutrition</option>
                         <option value="Mindfulness">Mindfulness</option>
@@ -110,8 +77,7 @@ class TableButtons extends Component {
 
                 <Form.Group controlId="frequency" className="formGroup">
                     <Form.Label> and Frequency:</Form.Label>
-                    <Form.Control as="select" custom onChange={this.handleSelectFreq.bind(this)}>
-                   {/* onChange={this.handleSelectFreq.bind(this)}> */}
+                    <Form.Control as="select" custom onChange={this.handleSelectFreq}>                   
                         <option value="Weekly" >Weekly</option>
                         <option value="Daily" >Daily</option>
                     </Form.Control>
@@ -120,7 +86,6 @@ class TableButtons extends Component {
               </Form>
  
 
->>>>>>> c7e1d3447f643d460574449a360927c0701bd10c
       </>
     );
   }
