@@ -98,7 +98,7 @@ login = async (userData) => {
 Wins | Challenges
 ------------ | -------------
 Improved understanding of designing apps with React. | The React client was challenging to implement as the features were often giving errors.
-Succesfully set up a database with PostgreSQL and ran it on a server with Docker. | Fetching data from the database and passing it around components without the help of Redux.
+Successfully set up a database with PostgreSQL and ran it on a server with Docker. | Fetching data from the database and passing it around components without the help of Redux.
 Used `jwt` to authenticate users on the platform. | Implementing the streak functionality of the habit tracking table.
 Inserted a background video on the welcome page. | Achieving a high coverage with the jest/enzyme testing.
 
