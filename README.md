@@ -8,47 +8,50 @@ HabitHub is a platform where users can sign up, create a table with different ha
 
 ## Installation
 
-* Clone and download this repo.
+- Clone and download this repo.
 
-### Client 
+### Client
 
-* `cd` into client folder.
-* run `npm install`.
-* run `npm start`.
+- `cd` into client folder.
+- run `npm install`.
+- run `npm start`.
 
 ### Server
 
-* `cd` into server folder.
-* run `docker-compose up --detach` (the `--detach` flag is optional).
+- `cd` into server folder.
+- run `docker-compose up --detach` (the `--detach` flag is optional).
 
-## Usage 
+## Usage
 
-* Go to the welcome page and click the 'Sign Up' button.
+- Go to the welcome page and click the 'Sign Up' button.
 
-* Enter your details and press 'Submit'. You will be redirected to the 'Login' page.
+- Enter your details and press 'Submit'. You will be redirected to the 'Login' page.
 
-* Type in the email and password you used to sign up.
+- Type in the email and password you used to sign up.
 
-* Through the User Interface add new habits to your tracking table. Mark the days you completed a habit with a tick and leave the ones when you skipped the habit empty. The app will calculate your weekly total and your streak.
+- Through the User Interface add new habits to your tracking table. Mark the days you completed a habit with a tick and leave the ones when you skipped the habit empty. The app will calculate your weekly total and your streak.
 
+## Habit-Hub System
+
+![](habithubsystem.png)
 
 ## Technologies
 
-* Figma
-* HTML
-* CSS
-* JavaScript
-* Express
-* PostgreSQL
-* Docker
-* Babel
-* Webpack
-* React
-* React Bootstrap
-* Jest/Enzyme
-* Netlify
-* Heroku
-
+- Figma
+- HTML
+- CSS
+- JavaScript
+- Express
+- PostgreSQL
+- Docker
+- Babel
+- Webpack
+- React
+- React Bootstrap
+- Jest/Enzyme
+- Netlify
+- Heroku
+- JWT
 
 ## Process
 
@@ -95,36 +98,36 @@ login = async (userData) => {
 
 ## Wins & Challenges
 
-Wins | Challenges
------------- | -------------
-Improved understanding of designing apps with React. | The React client was challenging to implement as the features were often giving errors.
-Successfully set up a database with PostgreSQL and ran it on a server with Docker. | Fetching data from the database and passing it around components without the help of Redux.
-Used `jwt` to authenticate users on the platform. | Implementing the streak functionality of the habit tracking table.
-Inserted a background video on the welcome page. | Achieving a high coverage with the jest/enzyme testing.
+| Wins                                                                               | Challenges                                                                                  |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Improved understanding of designing apps with React.                               | The React client was challenging to implement as the features were often giving errors.     |
+| Successfully set up a database with PostgreSQL and ran it on a server with Docker. | Fetching data from the database and passing it around components without the help of Redux. |
+| Used `jwt` to authenticate users on the platform.                                  | Implementing the streak functionality of the habit tracking table.                          |
+| Inserted a background video on the welcome page.                                   | Achieving a high coverage with the jest/enzyme testing.                                     |
 
 ## Bugs
 
-* The "Add Habit" button doesn't function properly.
-* Many tests still failing on the client side.
+- The "Add Habit" button doesn't function properly.
+- Many tests still failing on the client side.
 
 ## Features
 
-* Ability to sign up and login to the platform.
-* Ability to store your data with an encrypted password to an external SQL database.
-* Ability to add new habits to your table, record their frequency, total and streak during a week.
+- Ability to sign up and login to the platform.
+- Ability to store your data with an encrypted password to an external SQL database.
+- Ability to add new habits to your table, record their frequency, total and streak during a week.
 
 ## Future Features
 
-* A more visually-appealing styling.
-* Responsive design for mobile users.
-* Having multiple options for the habit frequency.
-* Sorting the habits based on streak or frequency.
-* Adapting the CSS for all different browsers.
-* Adding a badge to the repo.
-* Deploying the client and server sides.
+- A more visually-appealing styling.
+- Responsive design for mobile users.
+- Having multiple options for the habit frequency.
+- Sorting the habits based on streak or frequency.
+- Adapting the CSS for all different browsers.
+- Adding a badge to the repo.
+- Deploying the client and server sides.
 
 ## Licence
 
-* [MIT Licence](https://opensource.org/licenses/mit-license.php)
+- [MIT Licence](https://opensource.org/licenses/mit-license.php)
 
 To visit the site click click this link (coming soon).
